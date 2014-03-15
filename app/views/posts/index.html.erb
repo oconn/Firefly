@@ -1,23 +1,45 @@
 <h1 class="page-title">Posts</h1>
 
-<% @posts.each do |post| %>
-  <h2><%= link_to post.title, post_path(post) %></h2>
-  <div class="post-description">
-    <%= markdown post.description %>
+
+<div class="row">
+  <div class="small-12 medium-9 columns">
+    <% @posts.each do |post| %>
+
+      <h2><%= link_to post.title, post_path(post) %></h2>
+
+      <div class="post-description">
+        <%= markdown post.description %>
+      </div>
+
+      <% if !post.tags.empty? %>
+        <p>Tags:
+          <% post.tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+        </p>
+      <% end %>
+      
+      <div class="posts-admin-view">
+        <% if current_photographer %>
+
+          <p>Total Visits: <%= post.visit.total_visits rescue 0 %></p>
+          <p>Unique Visits: <%= post.visit.unique_visits rescue 0 %></p>
+
+          <ul>
+      	    <li><%= link_to "Edit Post", edit_post_path(post) %></li>
+      	    <li><%= link_to "Delete Post", post_path(post), method: :delete, confirm: "Are you sure you want to delete this post?" %></li>
+      	  </ul>
+
+        <% end %> 
+      </div>
+
+    <% end %>
   </div>
 
-  <% if !post.tags.empty? %>
-    <p>Tags:
-      <% post.tags.each do |tag| %>
-        <%= tag.name %>
-      <% end %>
-    </p>
-  <% end %>
+  <%= render "posts/sidebar" %>
 
-  <% if current_photographer %>
-    <ul>
-	    <li><%= link_to "Edit Post", edit_post_path(post) %></li>
-	    <li><%= link_to "Delete Post", post_path(post), method: :delete, confirm: "Are you sure?" %></li>
-	  </ul>
-  <% end %> 
-<% end %>
+</div>
+
+<div class="pagination">
+  <%= will_paginate @posts %>
+</div>
