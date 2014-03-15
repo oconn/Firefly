@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="small-10 small-offset-1 medium-8 medium-offset-2 columns">
+    <div class="small-10 small-offset-1 medium-8 medium-offset-2 large-6 large-offset-3 columns">
     
     <h4>Let me know what you think?</h4>
 
@@ -12,7 +12,7 @@
       <%= f.text_field :name, autofocuse: true %></div>
 
       <div><%= f.label :body, "Comment" %></br>
-      <%= f.text_area :body, autofocuse: true %></div>
+      <%= f.text_area :body, autofocuse: true, rows: 10 %></div>
 
       <div class="nickname-field"><%= f.label :nickname %><br>
       <%= f.text_field :nickname, autofocuse: true %></div>
