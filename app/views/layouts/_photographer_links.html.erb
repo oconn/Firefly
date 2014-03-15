@@ -2,6 +2,9 @@
 <ul class="left">
   <li><%= link_to "Blog", posts_path %></li>
   <li><%= link_to "Add Post", new_post_path %></li>
+  <% if current_photographer.admin? %>
+    <li><%= link_to "Admin", admin_path %></li>  
+  <% end %>
 </ul>
 
 <!-- Right Nav Section -->

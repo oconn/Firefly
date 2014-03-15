@@ -8,6 +8,12 @@ Firefly::Application.routes.draw do
     resources :comments
   end
 
+  resources :tags
+
+  resources :users
+
+  match "/admin", to: "admins#index", via: :get, as: "admin"
+
   
   
   # The priority is based upon order of creation: first created -> highest priority.
