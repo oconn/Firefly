@@ -15,6 +15,20 @@ ul.crud-links {
 	}
 }
 
+.alert-success {
+	margin: 1em;
+  background-color: #3CFF97;
+  border: 2px solid #33D980;
+  border-radius: 1.5em;
+  p {
+  	font-size: 1em;
+  	text-align: center;
+  	color: #104227;
+  	padding: 0.25em !important;
+  	margin-bottom: 0;
+  }
+}
+
 .pagination {
   display: table;
   margin: 1em auto;

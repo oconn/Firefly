@@ -3,10 +3,22 @@
     <div class="small-10 small-offset-1 medium-8 medium-offset-2 large-6 large-offset-3 columns">
 			<h3>Comments: </h3>
 			<% @comments.each do |comment| %>
+
 			  <div class="comment">
 			  	<p>Name: <%= comment.name %></p>
 			  	<p><%= comment.body %></p>
 			  </div>
+
+			  <% if photographer_signed_in? %>
+          <%= form_for :block_user, url: "/block_user/#{@post.id}/#{comment.id}" do |f| %>
+            Remove Comment: 
+            <%= f.radio_button :block_user, "1" %><br>
+						Block User & Remove Comment:
+            <%= f.radio_button :block_user, "2" %><br>
+            <%= f.submit "Submit", confirm: "Are you sure?" %>
+          <% end %>
+			  <% end %>
+
 			<% end %>
 		</div>
 	</div>

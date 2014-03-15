@@ -14,7 +14,7 @@ Firefly::Application.routes.draw do
 
   match "/admin", to: "admins#index", via: :get, as: "admin"
 
-  
+  match "/block_user/:post_id/:id", to: "comments#block_user", via: :post, as: "block_user"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

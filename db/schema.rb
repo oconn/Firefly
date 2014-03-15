@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315194742) do
+ActiveRecord::Schema.define(version: 20140315203101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blacklist_ips", force: true do |t|
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blacklist_ips", ["ip_address"], name: "index_blacklist_ips_on_ip_address", using: :btree
 
   create_table "comments", force: true do |t|
     t.string   "name"
