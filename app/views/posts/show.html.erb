@@ -1,9 +1,14 @@
-<%= link_to "Back", posts_path %>
 
-<h1 class="page-title"><%= @post.title %></h1>
-
-<div class="post-body">
-	<%= markdown @post.body %>
+<div class="row">
+	<div class="small-10 columns">
+		<%= link_to "Back", posts_path %>
+		<h1><%= @post.title %></h1>
+		
+		<div class="post-body">
+			<%= markdown @post.body %>
+		</div>
+	</div>
 </div>
+
 
 <%= render "comments/comments" %>

@@ -6,10 +6,18 @@
     <%= markdown post.description %>
   </div>
 
+  <% if !post.tags.empty? %>
+    <p>Tags:
+      <% post.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>
+    </p>
+  <% end %>
+
   <% if current_photographer %>
-    <ul class="crud-links">
-	    <li class="crud-edit"><%= link_to "Edit Post", edit_post_path(post), class: "button" %></li>
-	    <li class="crud-delete"><%= link_to "Delete Post", post_path(post), method: :delete, confirm: "Are you sure?", class: "button alert" %></li>
+    <ul>
+	    <li><%= link_to "Edit Post", edit_post_path(post) %></li>
+	    <li><%= link_to "Delete Post", post_path(post), method: :delete, confirm: "Are you sure?" %></li>
 	  </ul>
   <% end %> 
 <% end %>

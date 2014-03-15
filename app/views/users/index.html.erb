@@ -1,0 +1,9 @@
+<h1 class="page-title">All Users</h1>
+
+<% if @users %>
+	<% @users.each do |user| %>
+    <p><%= "#{user.last_name}, #{user.first_name} : #{user.email}" %>
+    	 <%= link_to "Delete User", user_path(user), method: :delete, confirm: "Are you sure you want to remove '#{user.first_name}'" %>
+    </p>
+	<% end %> 
+<% end %>

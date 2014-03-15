@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="small-10 small-offset-1 medium-8 medium-offset-2 columns">
+    <%= form_for @tag do |f| %>
+      <% if @errors %>
+        <p><%= @errors %></p>
+      <% end %>
+
+      <div><%= f.label :name %></br>
+      <%= f.text_field :name, autofocus: true %></div>
+
+      <div><%= f.submit "Creat Tag" %></div>
+    <% end %>
+  </div>
+</div>

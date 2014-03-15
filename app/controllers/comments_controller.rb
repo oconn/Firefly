@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
       redirect_to @post 
     else
     	@errors = @comment.errors.messages
-    	@errors[:body] = "Comment field cannot be blank."
     	render template: "posts/show"
     end
 	end
