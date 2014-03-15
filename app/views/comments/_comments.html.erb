@@ -1,0 +1,15 @@
+<% if @comments %>
+	<div class="row">
+    <div class="small-10 small-offset-1 medium-8 medium-offset-2 columns">
+			<h3>Comments: </h3>
+			<% @comments.each do |comment| %>
+			  <div class="comment">
+			  	<p>Name: <%= comment.name %></p>
+			  	<p><%= comment.body %></p>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
+
+<%= render "comments/form" %>

@@ -1,0 +1,9 @@
+<%= link_to "Back", posts_path %>
+
+<h1 class="page-title"><%= @post.title %></h1>
+
+<div class="post-body">
+	<%= markdown @post.body %>
+</div>
+
+<%= render "comments/comments" %>

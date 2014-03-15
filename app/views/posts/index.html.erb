@@ -1,0 +1,15 @@
+<h1 class="page-title">Posts</h1>
+
+<% @posts.each do |post| %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
+  <div class="post-description">
+    <%= markdown post.description %>
+  </div>
+
+  <% if current_photographer %>
+    <ul class="crud-links">
+	    <li class="crud-edit"><%= link_to "Edit Post", edit_post_path(post), class: "button" %></li>
+	    <li class="crud-delete"><%= link_to "Delete Post", post_path(post), method: :delete, confirm: "Are you sure?", class: "button alert" %></li>
+	  </ul>
+  <% end %> 
+<% end %>

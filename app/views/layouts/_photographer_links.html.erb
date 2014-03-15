@@ -1,0 +1,10 @@
+<!-- Left Nav Section -->
+<ul class="left">
+  <li><%= link_to "Blog", posts_path %></li>
+  <li><%= link_to "Add Post", new_post_path %></li>
+</ul>
+
+<!-- Right Nav Section -->
+<ul class="right">
+  <li><%= link_to "Sign Out", destroy_photographer_session_path, method: :delete %></li>  
+</ul>

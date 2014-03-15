@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315125345) do
+ActiveRecord::Schema.define(version: 20140315145905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.string   "ip_address"
+    t.integer  "post_id"
+    t.string   "nickname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photographers", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -36,6 +46,15 @@ ActiveRecord::Schema.define(version: 20140315125345) do
 
   add_index "photographers", ["email"], name: "index_photographers_on_email", unique: true, using: :btree
   add_index "photographers", ["reset_password_token"], name: "index_photographers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "posts", force: true do |t|
+    t.integer  "photographer_id"
+    t.string   "title"
+    t.text     "description"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
