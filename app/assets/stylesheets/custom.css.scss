@@ -15,6 +15,14 @@ ul.crud-links {
 	}
 }
 
+.pagination {
+  display: table;
+  margin: 1em auto;
+}
+
+.pagination > * {
+	margin: 0 0.5em;
+}
 
 /* **** Honeypot for forms **** */
 .nickname-field {

@@ -10,8 +10,6 @@ class PostsController < ApplicationController
     @post = current_photographer.posts.new(post_params)
     
     params[:tags].each do |tag_name, value|
-      p tag_name
-      p value
       if value == "1"
         @tag = Tag.find_by(name: tag_name)
         @post.tags << @tag
@@ -30,12 +28,15 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    Visit.track(@post, request.remote_ip)
     @comment = Comment.new
     @comments = @post.comments
   end
 
   def index 
-    @posts = Post.all.order("created_at DESC")
+    @posts= Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+    @recent_posts = Post.all.order("created_at DESC").limit(5)
+    @popular_posts = Post.joins(:visit).order('total_visits DESC').limit(5)
   end
 
   def edit
@@ -49,8 +50,6 @@ class PostsController < ApplicationController
     @post.tags.clear
     
     params[:tags].each do |tag_name, value|
-      p tag_name
-      p value
       if value == "1"
         @tag = Tag.find_by(name: tag_name)
         @post.tags << @tag

@@ -1,0 +1,20 @@
+<div class="small-12 medium-3 columns posts-sidebar">
+
+  <h3>Popular Posts</h3>
+  <div class="popular-posts">
+  	
+    <% @popular_posts.each do |post| %>
+      <p><%= link_to post.title, post_path(post) %></p>
+    <% end %>
+
+  </div>
+
+  <h3>Recent Posts</h3>
+  <div class="recent-posts">
+
+    <% @recent_posts.each do |post| %>
+      <p><%= link_to post.title, post_path(post) %></p>
+    <% end %>
+
+  </div> 
+</div>

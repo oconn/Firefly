@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315162346) do
+ActiveRecord::Schema.define(version: 20140315194742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,5 +88,27 @@ ActiveRecord::Schema.define(version: 20140315162346) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "visit_details", force: true do |t|
+    t.integer  "visit_id"
+    t.string   "ip_address", limit: 15
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visit_details", ["ip_address"], name: "index_visit_details_on_ip_address", using: :btree
+  add_index "visit_details", ["visit_id"], name: "index_visit_details_on_visit_id", using: :btree
+
+  create_table "visits", force: true do |t|
+    t.integer  "visitable_id"
+    t.string   "visitable_type", limit: 30
+    t.integer  "total_visits"
+    t.integer  "unique_visits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "visits", ["visitable_id"], name: "index_visits_on_visitable_id", using: :btree
+  add_index "visits", ["visitable_type"], name: "index_visits_on_visitable_type", using: :btree
 
 end
