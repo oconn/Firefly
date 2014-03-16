@@ -60,10 +60,10 @@ end
 
 Post.all.each do |post|
   3.times do
-  	@post = post.comments.create(
+  	post.comments.create(
       name: Faker::Name.first_name,
       body: Faker::Lorem.sentences(sentence_count = 2).join
   	)
-    @post.tags << Tag.all.sample
+    post.tags << Tag.all.sample
   end
 end
