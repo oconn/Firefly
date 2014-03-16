@@ -7,7 +7,7 @@
 	  <p><%= tag.name %></p>
 	  <ul class="crud-links">
 		  <li class="crud-edit"><%= link_to "Edit Tag", edit_tag_path(tag) %></li>
-		  <li class="crud-delete"><%= link_to "Delete Tag", tag_path(tag), method: :delete, confirm: "Are you sure?" %></li>
+		  <li class="crud-delete"><%= link_to "Delete Tag", tag_path(tag), method: :delete, data: {confirm: "Are you sure?"} %></li>
 		</ul>
 	</div>
 <% end %>
