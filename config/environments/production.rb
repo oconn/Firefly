@@ -79,4 +79,14 @@ Firefly::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_protocol => "https",
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 end
