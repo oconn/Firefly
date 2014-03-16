@@ -53,11 +53,17 @@ end
   )
 end
 
+@tags = ["fun", "awesome", "family", "how-to"]
+@tags.each do |tag_name|
+  Tag.create(name: tag_name)
+end
+
 Post.all.each do |post|
   3.times do
-  	post.comments.create(
+  	@post = post.comments.create(
       name: Faker::Name.first_name,
       body: Faker::Lorem.sentences(sentence_count = 2).join
   	)
+    @post.tags << Tag.all.sample
   end
 end

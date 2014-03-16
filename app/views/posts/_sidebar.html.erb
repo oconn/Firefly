@@ -1,4 +1,12 @@
 <div class="small-12 medium-3 columns posts-sidebar">
+  
+  <h3>Search</h3>
+  <div class="search-posts">
+    <%= form_for :search, url: "/posts/search" do |f| %>
+      <%= f.search_field :search, autofocuse: true %>
+      <%= f.submit "Search" %>
+    <% end %>
+  </div>
 
   <h3>Popular Posts</h3>
   <div class="popular-posts">
@@ -16,5 +24,14 @@
       <p><%= link_to post.title, post_path(post) %></p>
     <% end %>
 
+  </div>
+
+  <h3>Tags</h3>
+  <div class="tagged-posts">
+
+    <% @tags.each do |tag| %>
+      <p><%= tag.name %></p>
+    <% end %>
+    
   </div> 
 </div>

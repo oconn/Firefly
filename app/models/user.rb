@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
 
   validates_attachment_content_type :profile_image, :content_type => /\Aimage\/.*\Z/
 
-  has_many :galleries       
+  has_many :galleries  
+
+  def fullname
+    "#{self.first_name} #{self.last_name}"
+  end     
 end

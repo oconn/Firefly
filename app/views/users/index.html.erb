@@ -1,11 +1,14 @@
 <h1 class="page-title">All Users</h1>
 
-<% if @users %>
-	<% @users.each do |user| %>
-    <p><%= link_to "#{user.last_name}, #{user.first_name}", user_path(user) %>
-       <%= link_to user.email, email_user_path(user) %>
-	    <%= link_to "Add Gallery", new_user_gallery_path(user) %>
-    	<%= link_to "Delete User", user_path(user), method: :delete, confirm: "Are you sure you want to remove '#{user.first_name}'" %>
-    </p>
-	<% end %> 
-<% end %>
+<div class="row">
+	<% if @users %>
+		<% @users.each do |user| %>
+			<div class="small-12 medium-6 large-4 columns admin-users-list">
+		    <%= link_to "#{user.last_name}, #{user.first_name}", user_path(user), class: "user-name" %>
+		    <%= link_to user.email, email_user_path(user), class: "user-email" %>
+			  <%= link_to "Add Gallery", new_user_gallery_path(user), class: "add-gallery" %>
+		    <%= link_to "Delete User", user_path(user), method: :delete, data: {confirm: "Are you sure you want to remove '#{user.first_name}'"}, class: "delete-user" %>
+			</div>
+		<% end %> 
+	<% end %>
+</div>

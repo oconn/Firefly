@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_photographer!, only: [:index, :email]
+  before_filter :authenticate_photographer!, only: [:index, :email, :send_email]
   before_filter :check_privileges, only: [:edit_profile_image]
 
 	def index
@@ -30,6 +30,21 @@ class UsersController < ApplicationController
 
   def email
     @user = User.find(params[:id])
+  end
+
+  def send_email
+    @user = User.find(params[:id])
+    @subject = params[:email][:subject]
+    @body = params[:email][:body]
+
+    if (@subject != "" && @body != "")
+      UserMailer.email(@subject, @body, @user)
+      flash[:notice] = "Email sent to #{@user.fullname}"
+      redirect_to admin_path
+    else
+      @errors = "Subject and Body fields cannot be blank"
+      render "email"
+    end
   end
 
 	private

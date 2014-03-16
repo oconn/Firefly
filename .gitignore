@@ -23,5 +23,6 @@
 .ruby-version
 bundler_stubs/
 config/database.yml
-sample_imgs/
+config/email.yml
 public/system/
+# sample_imgs/

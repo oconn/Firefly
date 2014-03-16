@@ -35,6 +35,7 @@ class PostsController < ApplicationController
 
   def index 
     @posts= Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+    @tags = Tag.all
     @recent_posts = Post.all.order("created_at DESC").limit(5)
     @popular_posts = Post.joins(:visit).order('total_visits DESC').limit(5)
   end
@@ -63,6 +64,11 @@ class PostsController < ApplicationController
     	@errors = @post.errors.messages
     	render "edit"
     end
+  end
+
+  def search
+    flash[:warning] = "this feature is not ready"
+    redirect_to posts_path
   end
 
   def destroy
