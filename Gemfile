@@ -41,6 +41,9 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'paperclip'
 
+# Amazon Web Services
+gem 'aws-sdk'
+
 gem 'faker'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
