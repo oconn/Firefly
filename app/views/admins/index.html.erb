@@ -1,3 +1,7 @@
-<p><%= link_to "Edit Tags", tags_path %></p>
-<p><%= link_to "View Users (#{total_users})", users_path %></p>
-<!-- <p><%#= link_to "View Staff (#{total_users})", users_path %></p> -->
+<div class="row">
+	<div class="small-10 small-offset-1 columns admin-choices">
+		<%= link_to "Edit Tags", tags_path, class: "edit-tags" %>
+		<%= link_to "View Users (#{total_users})", users_path, class: "view-users" %>
+		<!-- <p><%#= link_to "View Staff (#{total_users})", users_path %></p> -->
+	</div>
+</div>

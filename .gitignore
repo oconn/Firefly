@@ -23,3 +23,5 @@
 .ruby-version
 bundler_stubs/
 config/database.yml
+sample_imgs/
+public/system/

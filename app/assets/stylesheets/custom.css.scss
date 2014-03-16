@@ -15,6 +15,8 @@ ul.crud-links {
 	}
 }
 
+/* ****** Flash Messages ****** */
+
 .alert-success {
 	margin: 1em;
   background-color: #3CFF97;
@@ -26,6 +28,20 @@ ul.crud-links {
   	color: #104227;
   	padding: 0.25em !important;
   	margin-bottom: 0;
+  }
+}
+
+.alert-danger {
+  margin: 1em;
+  background-color: #EB5856;
+  border: 2px solid #EB5856;
+  border-radius: 1.5em;
+  p {
+    font-size: 1em;
+    text-align: center;
+    color: #751D1D;
+    padding: 0.25em !important;
+    margin-bottom: 0;
   }
 }
 

@@ -8,6 +8,9 @@ class AdminsController < ApplicationController
 	private
 
 	def authenticate_admin
-    redirect_to new_photographer_session_path if !(photographer_signed_in? && current_photographer.admin)
+    if !(photographer_signed_in? && current_photographer.admin)
+    	flash[:warning] = "You do not have permission to view this page."
+      redirect_to root_path
+    end
 	end
 end

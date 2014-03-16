@@ -1,14 +1,15 @@
 
 <div class="row">
-	<div class="small-10 columns">
+	<div class="small-10 small-offset-1 columns">
 		<%= link_to "Back", posts_path %>
 		<h1><%= @post.title %></h1>
 		
+    <%= image_tag @post.cover_image.url(:original), class: "post-cover-img" %>
+
 		<div class="post-body">
 			<%= markdown @post.body %>
 		</div>
 	</div>
 </div>
-
 
 <%= render "comments/comments" %>

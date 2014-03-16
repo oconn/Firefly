@@ -1,0 +1,17 @@
+<h1 class="page-title"><%= @user.first_name %></h1>
+
+<div class="row" style="margin-top: 2em;">
+	<div class="small-12 medium-3 columns user-info-block">
+		<div class="profile-pic">
+			<%= image_tag @user.profile_image %>
+		</div>
+		<p><%= "#{@user.first_name} #{@user.last_name}" %></p>
+		<%= link_to "Edit Profile Image", profile_image_path(@user.id) %>
+	</div>
+
+	<div class="small-12 medium-9 columns user-right-pannel">
+		<%= link_to "My Galleries", user_galleries_path(@user), class: "my-galleries" %>
+		<%= link_to "Schedule A Session", "#", class: "schedule-session" %>
+		<%= link_to "Share Gallery", "#", class: "share-gallery" %>   
+	</div>
+</div>
