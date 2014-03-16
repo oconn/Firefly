@@ -24,6 +24,8 @@ Firefly::Application.routes.draw do
 
   match "/profile_image/:id", to: "users#edit_profile_image",   via: :get,  as: "profile_image"
   match "/profile_image/:id", to: "users#update_profile_image", via: :post
+
+  match '/posts/search', to: "posts#search", via: :post, as: "search_posts"
   
   
   # The priority is based upon order of creation: first created -> highest priority.

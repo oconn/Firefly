@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     @subject = params[:email][:subject]
     @body = params[:email][:body]
 
-    if (@suject != "" && @body != "")
+    if (@subject != "" && @body != "")
       UserMailer.email(@subject, @body, @user)
       flash[:notice] = "Email sent to #{@user.fullname}"
       redirect_to admin_path
