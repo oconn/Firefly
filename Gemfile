@@ -41,6 +41,7 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'paperclip'
 
+gem 'faker'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -49,7 +50,6 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'faker'
 end 
 
 # Use ActiveModel has_secure_password
