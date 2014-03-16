@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
   before_filter :authenticate_photographer!, only: [:new, :create, :destroy]
   before_filter :check_privileges, only: [:index]
+  before_filter :check_gallery_permissions, only: [:show]
   
 	def new
     @gallery = Gallery.new
@@ -47,8 +48,16 @@ class GalleriesController < ApplicationController
 	end
 
   def check_privileges
-    if !((user_signed_in? && current_user.id == params[:user_id]) || photographer_signed_in? )
+    if !((user_signed_in? && current_user.id == params[:user_id].to_i) || photographer_signed_in? )
       flash[:warning] = "You do not have privileges to access this page"
+      redirect_to root_path
+    end
+  end
+
+  def check_gallery_permissions
+    @gallery = Gallery.find(params[:id])
+    if !((user_signed_in? && current_user.id == @gallery.user.id) || photographer_signed_in? )
+      flash[:warning] = "You do not have privileges to access this gallery. Contact the owner and ask for permission to access it."
       redirect_to root_path
     end
   end
