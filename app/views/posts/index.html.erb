@@ -1,4 +1,4 @@
-<h1 class="page-title">Posts</h1>
+<h1 class="page-title">Blog Title</h1>
 
 
 <div class="row">
@@ -6,6 +6,8 @@
     <% @posts.each do |post| %>
 
       <h2><%= link_to post.title, post_path(post) %></h2>
+
+      <%= link_to image_tag(post.cover_image.url(:original)), post_path(post) %>
 
       <div class="post-description">
         <%= markdown post.description %>

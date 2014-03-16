@@ -7,14 +7,20 @@ Firefly::Application.routes.draw do
   resources :posts do 
     resources :comments
   end
-
   resources :tags
+  
+  resources :users, shallow: true do 
+    resources :galleries 
+  end
 
-  resources :users
 
   match "/admin", to: "admins#index", via: :get, as: "admin"
 
   match "/block_user/:post_id/:id", to: "comments#block_user", via: :post, as: "block_user"
+
+  match "/profile_image/:id", to: "users#edit_profile_image",   via: :get,  as: "profile_image"
+  match "/profile_image/:id", to: "users#update_profile_image", via: :post
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
