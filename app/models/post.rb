@@ -6,6 +6,7 @@ class Post < ActiveRecord::Base
 	                    :default_url => "/images/:style/missing.png"
 
   validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/
+  validates :cover_image, attachment_presence: true
   
 	belongs_to :photographer
 	has_many :comments
