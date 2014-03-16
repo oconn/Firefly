@@ -25,5 +25,5 @@ bundler_stubs/
 config/database.yml
 config/email.yml
 public/system/
-test.csv
+# test.csv
 # sample_imgs/
