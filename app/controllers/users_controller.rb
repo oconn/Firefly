@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_photographer!, only: [:index]
+  before_filter :authenticate_photographer!, only: [:index, :email]
   before_filter :check_privileges, only: [:edit_profile_image]
 
 	def index
@@ -27,6 +27,10 @@ class UsersController < ApplicationController
       redirect_to @user
     end
 	end
+
+  def email
+    @user = User.find(params[:id])
+  end
 
 	private
   

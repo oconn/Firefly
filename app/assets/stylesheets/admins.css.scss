@@ -1,3 +1,29 @@
 // Place all the styles related to the admins controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin-choices {
+	margin: 2em auto;
+	a {
+    display: block;
+    padding: 1.4em;
+    width: 90%;
+    color: white;
+    text-align: center;
+    margin: 2em auto;
+	}
+	.edit-tags {
+    background-color: #398899;
+	  margin-top: 0;
+	  &:hover {
+	  	background-color: #15616E;
+	  }
+	}
+	.view-users {
+    background-color: #FFFCE8;
+	  color: black;
+	  &:hover {
+	  	background-color: #D1CFBE;
+	  }
+	}
+}

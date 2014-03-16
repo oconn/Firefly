@@ -10,6 +10,10 @@ Firefly::Application.routes.draw do
   resources :tags
   
   resources :users, shallow: true do 
+    member do 
+      get 'email'
+      post 'email', to: "users#send_email"
+    end
     resources :galleries 
   end
 

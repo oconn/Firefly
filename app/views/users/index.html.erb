@@ -2,7 +2,8 @@
 
 <% if @users %>
 	<% @users.each do |user| %>
-    <p><%= link_to "#{user.last_name}, #{user.first_name} : #{user.email}", user_path(user) %>
+    <p><%= link_to "#{user.last_name}, #{user.first_name}", user_path(user) %>
+       <%= link_to user.email, email_user_path(user) %>
 	    <%= link_to "Add Gallery", new_user_gallery_path(user) %>
     	<%= link_to "Delete User", user_path(user), method: :delete, confirm: "Are you sure you want to remove '#{user.first_name}'" %>
     </p>
