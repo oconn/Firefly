@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   validates :title, :description, :body, :photographer_id, presence: true
   
   has_attached_file :cover_image, 
-	                    :styles => {:original => "600x350>"}, 
+	                    :styles => {:original => "900x400>"}, 
 	                    :default_url => "/images/:style/missing.png"
 
   validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/

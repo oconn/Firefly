@@ -9,4 +9,5 @@ class Gallery < ActiveRecord::Base
   validates :name, :user_id, :photographer_id, presence: true
 
   belongs_to :user
+  has_many :images, dependent: :destroy
 end

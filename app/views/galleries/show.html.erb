@@ -1,3 +1,38 @@
 <%= link_to "Back", user_galleries_path(@user) %>
 
 <h1 class="page-title"><%= @gallery.name %></h1>
+
+<div class="row">
+	<% if @images %>
+		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
+			<% @images.each do |image| %>
+			  <li>
+			  	<%= link_to image_tag(image.image_path.url(:thumb)), image %>
+          <% if photographer_signed_in? && current_photographer.id == @gallery.photographer_id %>
+            <%= link_to "Remove Image", image_path(image), method: :delete, data: {confirm: "Are you sure you want to remove this image?"} %> 
+          <% end %>
+			  </li>
+			<% end %> 
+		</ul>
+	<% end %>
+</div>
+
+<% if photographer_signed_in? %>
+  <div class="row">
+  	<div class="small-10 small-offset-1 medium-8 medium-offset-2 columns">
+		  <h3>Add Photos</h3>
+		  <%= form_for [@gallery, @image] do |f| %>
+		    <% if @errors %>
+	        <p><%= @errors %></p>
+	      <% end %>
+        
+        <div><%= f.label :image_path, "Image" %><br>
+        <%= f.file_field :image_path %></div>
+
+        <div><%= f.submit "Upload Image" %></div>
+
+		  <% end %>
+		</div>
+	</div>
+
+<% end %>

@@ -5,22 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-require "csv"
+# require "csv"
 
-CSV.foreach(Rails.root.join('./test.csv'), headers: true) do |obj|
-  Post.create(
-    photographer_id: 1,
-    title: obj[1],
-    body: obj[2],
-    created_at: obj[3], 
-    updated_at: obj[4],
-    description: obj[5],
-    cover_image_file_name: obj[6],
-    cover_image_content_type: obj[7],
-    cover_image_file_size: obj[8],
-    cover_image_updated_at: obj[9]
-  )  
-end
+# CSV.foreach(Rails.root.join('./test.csv'), headers: true) do |obj|
+#   Post.create(
+#     photographer_id: 1,
+#     title: obj[1],
+#     body: obj[2],
+#     created_at: obj[3], 
+#     updated_at: obj[4],
+#     description: obj[5],
+#     cover_image_file_name: obj[6],
+#     cover_image_content_type: obj[7],
+#     cover_image_file_size: obj[8],
+#     cover_image_updated_at: obj[9]
+#   )  
+# end
 
 Photographer.create(
   first_name: "Leah",
@@ -59,15 +59,15 @@ User.create(
 	)
 end
 
-# 15.times do
-#   Post.create(
-#     photographer_id: 1,
-#     title: Faker::Lorem.sentence,
-#     description: Faker::Lorem.sentences(sentence_count = 4).join,
-#     body: Faker::Lorem.paragraphs(paragraph_count = 5, supplemental = false).join,
-#     cover_image: File.open(Dir.glob(File.join(Rails.root, 'sample_imgs', '*')).sample)
-#   )
-# end
+15.times do
+  Post.create(
+    photographer_id: 1,
+    title: Faker::Lorem.sentence,
+    description: Faker::Lorem.sentences(sentence_count = 4).join,
+    body: Faker::Lorem.paragraphs(paragraph_count = 5, supplemental = false).join,
+    cover_image: File.open(Dir.glob(File.join(Rails.root, 'sample_imgs', '*')).sample)
+  )
+end
 
 @tags = ["fun", "awesome", "family", "how-to"]
 @tags.each do |tag_name|

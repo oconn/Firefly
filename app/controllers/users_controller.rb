@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_photographer!, only: [:index, :email, :send_email]
-  before_filter :check_privileges, only: [:edit_profile_image]
+  before_filter :check_privileges, only: [:edit_profile_image, :update_profile_image]
 
 	def index
     @users = User.all.order(:last_name)
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
 
 	def check_privileges
-	  if !((user_signed_in? && current_user.id == params[:id]) || photographer_signed_in? )
+	  if !((user_signed_in? && current_user.id == params[:id].to_i) || photographer_signed_in? )
 	  	flash[:warning] = "You do not have privileges to access this page"
 	  	redirect_to root_path
 	  end

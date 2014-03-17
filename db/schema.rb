@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 20140316123451) do
   end
 
   create_table "images", force: true do |t|
+    t.string   "image_path_file_name"
+    t.string   "image_path_content_type"
+    t.integer  "image_path_file_size"
+    t.datetime "image_path_updated_at"
+    t.integer  "rating"
+    t.integer  "gallery_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

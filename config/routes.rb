@@ -14,7 +14,9 @@ Firefly::Application.routes.draw do
       get 'email'
       post 'email', to: "users#send_email"
     end
-    resources :galleries 
+    resources :galleries do 
+      resources :images
+    end
   end
 
 
