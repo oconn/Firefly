@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20140316123451) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+
   create_table "galleries", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -46,6 +48,9 @@ ActiveRecord::Schema.define(version: 20140316123451) do
     t.datetime "updated_at"
   end
 
+  add_index "galleries", ["photographer_id"], name: "index_galleries_on_photographer_id", using: :btree
+  add_index "galleries", ["user_id"], name: "index_galleries_on_user_id", using: :btree
+
   create_table "images", force: true do |t|
     t.string   "image_path_file_name"
     t.string   "image_path_content_type"
@@ -56,6 +61,8 @@ ActiveRecord::Schema.define(version: 20140316123451) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
 
   create_table "photographers", force: true do |t|
     t.string   "email",                      default: "",    null: false
@@ -95,6 +102,8 @@ ActiveRecord::Schema.define(version: 20140316123451) do
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["photographer_id"], name: "index_posts_on_photographer_id", using: :btree
+
   create_table "posts_tags", force: true do |t|
     t.integer  "post_id"
     t.integer  "tag_id"
@@ -102,11 +111,18 @@ ActiveRecord::Schema.define(version: 20140316123451) do
     t.datetime "updated_at"
   end
 
+  add_index "posts_tags", ["post_id"], name: "index_posts_tags_on_post_id", using: :btree
+  add_index "posts_tags", ["tag_id"], name: "index_posts_tags_on_tag_id", using: :btree
+
   create_table "tags", force: true do |t|
     t.string   "name"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", using: :btree
+  add_index "tags", ["post_id"], name: "index_tags_on_post_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                      default: "", null: false

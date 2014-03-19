@@ -34,7 +34,16 @@ class PostsController < ApplicationController
   end
 
   def index 
-    @posts= Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+    if params[:search]
+      @search_content = params[:search][:search]
+      @posts = Post.paginate(:page => params[:page], :per_page => 3).where("title ILIKE ? OR body ILIKE ?", "%#{@search_content}%", "%#{@search_content}%").order("created_at DESC")
+      flash.now[:notice] = "No results returned for '#{@search_content}'" if @posts.empty?
+    elsif params[:tag]
+      @posts = Tag.find_by(name: params[:tag]).posts.paginate(:page => params[:page], :per_page => 3).order("created_at DESC") #Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+    else
+      @posts= Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+    end
+
     @tags = Tag.all
     @recent_posts = Post.all.order("created_at DESC").limit(5)
     @popular_posts = Post.joins(:visit).order('total_visits DESC').limit(5)
@@ -64,11 +73,6 @@ class PostsController < ApplicationController
     	@errors = @post.errors.messages
     	render "edit"
     end
-  end
-
-  def search
-    flash[:warning] = "this feature is not ready"
-    redirect_to posts_path
   end
 
   def destroy
