@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+	context "on initialization is expected to have" do
+
+    it "a name" do
+      user.create()
+    end
+	end
+
 end

@@ -8,5 +8,9 @@ class CreateGalleries < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :galleries, :user_id
+    add_index :galleries, :photographer_id
+
   end
 end
