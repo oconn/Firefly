@@ -1,13 +1,17 @@
-<%= form_for [@user, @gallery] do |f| %>
-  <% if @errors %>
-    <p><%= @errors %></p>
-  <% end %>
+<div class="row">
+  <div class="small-10 small-offset-1 medium-6 medium-offset-3 columns">
+  	<%= form_for [@user, @gallery] do |f| %>
+		  <% if @errors %>
+		    <p><%= @errors %></p>
+		  <% end %>
 
-  <div><%= f.label :name %><br>
-  <%= f.text_field :name, autofocuse: true %></div>
+		  <div><%= f.label :name %><br>
+		  <%= f.text_field :name, autofocuse: true %></div>
 
-  <div><%= f.label :cover_image %><br>
-  <%= f.file_field :cover_image %></div>
+		  <div><%= f.label :cover_image %><br>
+		  <%= f.file_field :cover_image %></div>
 
-  <%= f.submit %>
-<% end %>
+		  <%= f.submit %>
+		<% end %>
+	</div>
+</div>

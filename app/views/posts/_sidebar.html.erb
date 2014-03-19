@@ -2,7 +2,7 @@
   
   <h3>Search</h3>
   <div class="search-posts">
-    <%= form_for :search, url: "/posts/search" do |f| %>
+    <%= form_for :search, url: "/posts", method: :get do |f| %>
       <%= f.search_field :search, autofocuse: true %>
       <%= f.submit "Search" %>
     <% end %>
@@ -30,7 +30,7 @@
   <div class="tagged-posts">
 
     <% @tags.each do |tag| %>
-      <p><%= tag.name %></p>
+      <li><%= link_to tag.name, posts_path(tag: tag.name) %></li>
     <% end %>
     
   </div> 

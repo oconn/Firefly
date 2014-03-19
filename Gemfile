@@ -51,9 +51,12 @@ group :doc do
 end
 
 group :test, :development do
+	gem 'spring-commands-rspec'
   gem 'rspec-rails'
+  gem 'guard-rspec', '4.2.8'
   gem 'capybara'
-  gem 'guard-rspec'
+  gem 'factory_girl'
+  gem "database_cleaner"
 end 
 
 group :production, :staging do
