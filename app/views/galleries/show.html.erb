@@ -1,13 +1,28 @@
+<% content_for :header_links do %>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/sunny/jquery-ui.css" id="theme">
+	<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<% end %>
+
 <%= link_to "Back", user_galleries_path(@user) %>
 
 <h1 class="page-title"><%= @gallery.name %></h1>
+	<!-- The dialog widget -->
+	<div id="blueimp-gallery-dialog" data-show="fade" data-hide="fade">
+	    <!-- The gallery widget  -->
+	    <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
+	        <div class="slides"></div>
+	        <a class="prev">‹</a>
+	        <a class="next">›</a>
+	        <a class="play-pause"></a>
+	    </div>
+	</div>
 
 <div class="row">
 	<% if @images %>
 		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
 			<% @images.each do |image| %>
 			  <li>
-			  	<%= link_to image_tag(image.image_path.url(:thumb)), image %>
+			  	<a href="<%= image.image_path.url %>" data-dialog><%= image_tag(image.image_path.url(:thumb)) %></a>
           <% if photographer_signed_in? && current_photographer.id == @gallery.photographer_id %>
             <%= link_to "Remove Image", image_path(image), method: :delete, data: {confirm: "Are you sure you want to remove this image?"} %> 
           <% end %>
@@ -38,3 +53,6 @@
 		</div>
 	</div>
 <% end %>
+
+<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<%= javascript_include_tag "jquery.image-gallery.min" %>  

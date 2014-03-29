@@ -4,7 +4,7 @@ $(document).on('ready page:load', function(){
         url: $("#cal-path").text(),
         className: 'gcal-event',           // an option!
         currentTimezone: 'America/New_York', // an option!
-        defaultDate: new Date()
+        defaultDate: new Date(),
     }
   });
 });
