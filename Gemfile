@@ -41,6 +41,8 @@ gem 'will_paginate', '~> 3.0'
 
 gem 'paperclip'
 
+gem 'jquery-fileupload-rails'
+
 # Amazon Web Services
 gem 'aws-sdk'
 
