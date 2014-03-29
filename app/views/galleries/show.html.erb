@@ -21,18 +21,20 @@
   <div class="row">
   	<div class="small-10 small-offset-1 medium-8 medium-offset-2 columns">
 		  <h3>Add Photos</h3>
-		  <%= form_for [@gallery, @image] do |f| %>
+
+		  <%= form_for [@gallery, @image], html: { multipart: true } do |f| %>
 		    <% if @errors %>
 	        <p><%= @errors %></p>
 	      <% end %>
-        
         <div><%= f.label :image_path, "Image" %><br>
-        <%= f.file_field :image_path %></div>
-
+        	<!-- #image[image_path] -->
+        <%= f.file_field :image_path, multiple: true, name: "image[image_path]" %></div>
         <div><%= f.submit "Upload Image" %></div>
-
 		  <% end %>
+
+		  <% # jquery upload template # %>
+			<script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>
+
 		</div>
 	</div>
-
 <% end %>
