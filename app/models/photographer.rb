@@ -12,5 +12,6 @@ class Photographer < ActiveRecord::Base
   validates_attachment_content_type :profile_image, :content_type => /\Aimage\/.*\Z/       
   
   has_many :posts
+  has_one :calendar
 end
  

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_photographer!, only: [:index, :email, :send_email]
-  before_filter :check_privileges, only: [:edit_profile_image, :update_profile_image]
+  before_filter :check_privileges, only: [:edit_profile_image, :update_profile_image, :show]
 
 	def index
     @users = User.all.order(:last_name)
