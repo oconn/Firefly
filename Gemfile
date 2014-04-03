@@ -43,6 +43,8 @@ gem 'paperclip'
 
 gem 'jquery-fileupload-rails'
 
+gem 'friendly_id', '~> 5.0.0'
+
 # Amazon Web Services
 gem 'aws-sdk'
 

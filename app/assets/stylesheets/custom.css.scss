@@ -1,6 +1,28 @@
+@font-face {
+  font-family: 'freebooter';
+  src: url(font-path('freebooter-webfont.eot') + "?#iefix") format('embedded-opentype'),
+       url(font-path('freebooter-webfont.woff')) format('woff'), 
+       url(font-path('freebooter-webfont.ttf'))  format('truetype'),
+       url(font-path('freebooter-webfont.svg') + "#MyFont") format('svg');
+}
+
 .container {
 	width: 95%;
 	margin: 0 auto;
+}
+
+.brand {
+  height: 100px;
+  margin: 0 2em;
+  p {
+    margin: 0;
+    line-height: 33.333px;
+    &:last-child {
+      color: red;
+      font-family: freebooter;
+    }
+  }
+
 }
 
 .page-title {
@@ -57,4 +79,25 @@ ul.crud-links {
 /* **** Honeypot for forms **** */
 .nickname-field {
 	display: none;
+}
+
+.top-nav-bar {
+  background-color: #FFD9C1;
+  height: 100px;
+  display: table;
+  width: 100%;
+  ul.logo {
+    background-color: red;
+    display: inline-table;
+  }
+  ul {
+    display: inline-table;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }

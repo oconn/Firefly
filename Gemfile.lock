@@ -75,6 +75,8 @@ GEM
     foundation-rails (5.2.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    friendly_id (5.0.3)
+      activerecord (>= 4.0.0)
     guard (2.6.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -229,6 +231,7 @@ DEPENDENCIES
   factory_girl
   faker
   foundation-rails
+  friendly_id (~> 5.0.0)
   guard-rspec (= 4.2.8)
   jbuilder (~> 1.2)
   jquery-fileupload-rails

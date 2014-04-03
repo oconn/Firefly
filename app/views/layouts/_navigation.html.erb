@@ -1,26 +1,21 @@
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "Firefly", root_path %></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+<nav class="top-nav-bar">
+  <ul class="logo">
+    <li><%= link_to "Let <br>Love <br>Glow".html_safe, root_path %></li>
   </ul>
-
-  <section class="top-bar-section">
+  <ul>
     <% if current_photographer %>
       <%= render "layouts/photographer_links" %>
-    <% elsif current_user %>
-      <%= render "layouts/user_links" %>
     <% else %>
       <!-- Left Nav Section -->
       <ul class="left">
+        <li><%= link_to "Gallery", "#" %></li>
         <li><%= link_to "Blog", posts_path %></li>
-      </ul>
-
-      <!-- Right Nav Section -->
-      <ul class="right">         
-        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li><%= link_to "Meet Leah", "#" %></li>
+        <li><%= link_to "Inside Scoop", "#" %></li>
+        <li><%= link_to "Client Lounge", "#" %></li>
+        <li><%= link_to "Projects", "#" %></li>
+        <li><%= link_to "Contact", "#" %></li>
       </ul>
     <% end %>
-  </section>
+  </ul>
 </nav>
