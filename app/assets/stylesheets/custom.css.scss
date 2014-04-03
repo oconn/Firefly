@@ -76,28 +76,21 @@ ul.crud-links {
 	margin: 0 0.5em;
 }
 
+.banner {
+  display: block;
+  background-color: #333333;
+  height: 60px;
+  h2 {
+    margin: 0;
+    text-align: center; 
+    font-family: freebooter;
+    font-size: 1.8em;
+    line-height: 60px;
+    color: white;   
+  }
+}
+
 /* **** Honeypot for forms **** */
 .nickname-field {
 	display: none;
-}
-
-.top-nav-bar {
-  background-color: #FFD9C1;
-  height: 100px;
-  display: table;
-  width: 100%;
-  ul.logo {
-    background-color: red;
-    display: inline-table;
-  }
-  ul {
-    display: inline-table;
-    padding: 0;
-    margin: 0;
-    li {
-      display: inline-block;
-      margin: 0;
-      padding: 0;
-    }
-  }
 }

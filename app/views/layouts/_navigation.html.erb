@@ -1,21 +1,29 @@
-<nav class="top-nav-bar">
-  <ul class="logo">
-    <li><%= link_to "Let <br>Love <br>Glow".html_safe, root_path %></li>
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "Let Love Glow".html_safe, root_path %></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
-  <ul>
+
+  <section class="top-bar-section">
     <% if current_photographer %>
       <%= render "layouts/photographer_links" %>
     <% else %>
-      <!-- Left Nav Section -->
       <ul class="left">
         <li><%= link_to "Gallery", "#" %></li>
         <li><%= link_to "Blog", posts_path %></li>
         <li><%= link_to "Meet Leah", "#" %></li>
         <li><%= link_to "Inside Scoop", "#" %></li>
-        <li><%= link_to "Client Lounge", "#" %></li>
         <li><%= link_to "Projects", "#" %></li>
+      </ul>
+      <ul class="right">
+        <li><%= link_to "Client Lounge", new_user_session_path %></li>
         <li><%= link_to "Contact", "#" %></li>
       </ul>
     <% end %>
-  </ul>
+  </section>
 </nav>
+<div class="banner">
+  <h2>Firefly Photography</h2>
+</div>
