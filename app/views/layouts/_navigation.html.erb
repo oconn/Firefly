@@ -1,29 +1,57 @@
-<nav class="top-bar" data-topbar>
+<!-- <nav class="top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1><%= link_to "Let Love Glow".html_safe, root_path %></h1>
+      <h1><%#= link_to image_tag("tag.png", id: "tag-icon"), root_path %></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
   </ul>
 
   <section class="top-bar-section">
-    <% if current_photographer %>
-      <%= render "layouts/photographer_links" %>
-    <% else %>
+    <%# if current_photographer %>
+      <%#= render "layouts/photographer_links" %>
+    <%# else %>
       <ul class="left">
-        <li><%= link_to "Gallery", "#" %></li>
-        <li><%= link_to "Blog", posts_path %></li>
-        <li><%= link_to "Meet Leah", "#" %></li>
-        <li><%= link_to "Inside Scoop", "#" %></li>
-        <li><%= link_to "Projects", "#" %></li>
+        <li><%#= link_to "Gallery", "#" %></li>
+        <li><%#= link_to "Blog", posts_path %></li>
+        <li><%#= link_to "Meet Leah", "#" %></li>
+        <li><%#= link_to "Inside Scoop", "#" %></li>
+        <li><%#= link_to "Projects", "#" %></li>
       </ul>
       <ul class="right">
-        <li><%= link_to "Client Lounge", new_user_session_path %></li>
-        <li><%= link_to "Contact", "#" %></li>
+        <li><%#= link_to "Client Lounge", new_user_session_path %></li>
+        <li><%#= link_to "Contact", "#" %></li>
       </ul>
-    <% end %>
+    <%# end %>
   </section>
+</nav> -->
+
+<nav class="custom-nav">
+  <%= link_to image_tag("logo.png", id: "logo"), root_path %>
+  <%= link_to "Menu #{fa_icon('bars', class: 'fa-2x')}".html_safe, "#", id: "menu-link" %>
 </nav>
-<div class="banner">
-  <h2>Firefly Photography</h2>
-</div>
+
+<ul id="nav-list" data-visable="hidden">
+  <li><%= link_to "Gallery", "#" %></li>
+  <li><%= link_to "Blog", posts_path %></li>
+  <li><%= link_to "Meet Leah", "#" %></li>
+  <li><%= link_to "Inside Scoop", "#" %></li>
+  <li><%= link_to "Projects", "#" %></li>
+  <li><%= link_to "Client Lounge", new_user_session_path %></li>
+  <li><%= link_to "Contact", "#" %></li>
+</ul>
+
+<script>
+$(function(){
+  $("#menu-link").on("click", function(e){
+    e.preventDefault();
+    
+    if ($("#nav-list").data("visable") === "hidden") {
+      $(this).html("Close <i class='fa fa-arrow-right fa-2x'></i> ")
+      $("#nav-list").toggle("left").data("visable", "visable");
+    } else {
+      $(this).html("Menu <i class='fa fa-bars fa-2x'></i> ")
+      $("#nav-list").toggle("right").data("visable", "hidden");
+    }
+  });
+});
+</script>

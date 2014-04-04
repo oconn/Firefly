@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'foundation-rails'
 
+gem "font-awesome-rails"
+
 gem 'redcarpet'
 
 gem "pygments.rb", "~> 0.5.4"

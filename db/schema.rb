@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403155958) do
+ActiveRecord::Schema.define(version: 20140403210343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,26 @@ ActiveRecord::Schema.define(version: 20140403155958) do
 
   add_index "photographers", ["email"], name: "index_photographers_on_email", unique: true, using: :btree
   add_index "photographers", ["reset_password_token"], name: "index_photographers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "portfolio_images", force: true do |t|
+    t.string   "image_path_file_name"
+    t.string   "image_path_content_type"
+    t.integer  "image_path_file_size"
+    t.datetime "image_path_updated_at"
+    t.integer  "portfolio_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "portfolio_images", ["portfolio_id"], name: "index_portfolio_images_on_portfolio_id", using: :btree
+
+  create_table "portfolios", force: true do |t|
+    t.integer  "photographer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "portfolios", ["photographer_id"], name: "index_portfolios_on_photographer_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.integer  "photographer_id"
