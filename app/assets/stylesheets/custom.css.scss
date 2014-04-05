@@ -100,7 +100,7 @@ ul.crud-links {
     padding: 0 5px;
     line-height: 80px;
     z-index: 100;
-    background-color: $light_gray;
+    background-color: black;
     border-radius: 0 0 0 1em;
     &:hover {
       color: $dark_teal;
@@ -111,7 +111,7 @@ ul.crud-links {
 #nav-list {
   z-index: 90;
   list-style: none;
-  background-color: $light_gray;
+  background-color: black;
   display: none;
   position: fixed;
   right: 0;
@@ -134,6 +134,12 @@ ul.crud-links {
         color: $dark_teal;
       }
     }
+  }
+}
+
+.slideshow-container {
+  img {
+    border: 2em solid black;
   }
 }
 
