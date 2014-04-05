@@ -40,7 +40,6 @@ Photographer.create(
   admin: true
 )
 
-
 User.create(
   first_name: "Matt",
   last_name: "O'Connell",
@@ -70,6 +69,7 @@ end
 end
 
 @tags = ["fun", "awesome", "family", "how-to"]
+
 @tags.each do |tag_name|
   Tag.create(name: tag_name)
 end

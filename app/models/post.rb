@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   validates :title, :description, :body, :photographer_id, presence: true
   
   has_attached_file :cover_image, 

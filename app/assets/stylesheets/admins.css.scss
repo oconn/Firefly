@@ -26,6 +26,14 @@
 	  	background-color: #D1CFBE;
 	  }
 	}
+
+  .view-staff {
+    background-color: #398899;
+    margin-top: 0;
+    &:hover {
+      background-color: #15616E;
+    }
+  }
 }
 
 .admin-users-list {

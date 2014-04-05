@@ -1,6 +1,34 @@
+$butter: #fff8b0;
+$teal: #74a9a8;
+$dark_teal: #547A7A;
+$dark_gray: #939191;
+$nude: #f6e4da;
+$mint: #daf6f5;
+$cocoa: #b6a69b;
+$pale_yellow: #fffbd4;
+$light_gray: #cfcece;
+
+body {
+  background-color: $nude;
+}
+
 .container {
 	width: 95%;
 	margin: 0 auto;
+}
+
+.brand {
+  height: 100px;
+  margin: 0 2em;
+  p {
+    margin: 0;
+    line-height: 33.333px;
+    &:last-child {
+      color: red;
+      font-family: freebooter;
+    }
+  }
+
 }
 
 .page-title {
@@ -54,7 +82,87 @@ ul.crud-links {
 	margin: 0 0.5em;
 }
 
+
+.custom-nav {
+  background-color: $nude;
+
+  #logo {
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+  #menu-link {
+    font-size: 0.8em;
+    color: $teal;
+    position: fixed;
+    top: 0; 
+    right: 0px;
+    padding: 0 5px;
+    line-height: 80px;
+    z-index: 100;
+    background-color: black;
+    border-radius: 0 0 0 1em;
+    &:hover {
+      color: $dark_teal;
+    }
+  }
+}
+
+#nav-list {
+  z-index: 90;
+  list-style: none;
+  background-color: black;
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  li {
+    font-family: book;
+    padding: 0.4em 2em;
+    &:first-child {
+      margin-top: 70px;
+    }
+
+    a {
+      color: $teal;
+      font-size: 1.4em;
+      white-space: nowrap;
+      &:hover {
+        color: $dark_teal;
+      }
+    }
+  }
+}
+
+.slideshow-container {
+  img {
+    border: 2em solid black;
+  }
+}
+
 /* **** Honeypot for forms **** */
 .nickname-field {
 	display: none;
+}
+
+@media (min-width: 640px) {
+  .custom-nav {
+
+    #menu-link {
+      font-size: 1.2em;
+      padding: 0 15px;
+    }
+  }
+
+  #nav-list {
+    width: auto;
+    li {
+      a {
+
+      }
+    }
+  }
 }

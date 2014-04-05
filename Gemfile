@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'foundation-rails'
 
+gem "font-awesome-rails"
+
 gem 'redcarpet'
 
 gem "pygments.rb", "~> 0.5.4"
@@ -42,6 +44,8 @@ gem 'will_paginate', '~> 3.0'
 gem 'paperclip'
 
 gem 'jquery-fileupload-rails'
+
+gem 'friendly_id', '~> 5.0.0'
 
 # Amazon Web Services
 gem 'aws-sdk'

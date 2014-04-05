@@ -1,0 +1,18 @@
+<h1 class="page-title">Staff</h1>
+
+<div class="row">
+	<% if @photographers %>
+		<% @photographers.each do |photographer| %>
+			<div class="small-12 medium-6 large-4 columns admin-users-list">
+		    <%= link_to "#{photographer.last_name}, #{photographer.first_name}", photographer_path(photographer), class: "user-name" %>
+		    <% if !photographer.calendar %>
+			    <%= button_to "Add Calendar for Staff Member", add_calendar_path(photographer.id), method: "POST" %> 
+			  <% end %>
+		    <%#= link_to photographer.email, email_photographer_path(photographer), class: "user-email" %>
+		    <%#= link_to "Delete photographer", photographer_path(photographer), method: :delete, data: {confirm: "Are you sure you want to remove '#{photographer.first_name}'"}, class: "delete-user" %>
+			</div>
+		<% end %> 
+	<% end %>
+</div>
+
+

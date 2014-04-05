@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'freebooter';
+  src: url(font-path('freebooter-webfont.eot') + "?#iefix") format('embedded-opentype'),
+       url(font-path('freebooter-webfont.woff')) format('woff'), 
+       url(font-path('freebooter-webfont.ttf'))  format('truetype'),
+       url(font-path('freebooter-webfont.svg') + "#MyFont") format('svg');
+}
+
+@font-face {
+  font-family: 'book';
+  src: url(font-path('book-webfont.eot') + "?#iefix") format('embedded-opentype'),
+       url(font-path('book-webfont.woff')) format('woff'), 
+       url(font-path('book-webfont.ttf'))  format('truetype'),
+       url(font-path('book-webfont.svg') + "#MyFont") format('svg');
+}
+
 // Foundation by ZURB
 // foundation.zurb.com
 // Licensed under MIT Open Source
@@ -1134,7 +1150,7 @@
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: 80px;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1156,12 +1172,12 @@
 // $topbar-link-color-active: #fff;
 // $topbar-link-color-active-hover: #fff;
 // $topbar-link-weight: normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg-hover: #272727;
 // $topbar-link-bg-active: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
-// $topbar-link-font-family: $body-font-family;
+$topbar-link-font-family: book;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: $topbar-height / 3;
 

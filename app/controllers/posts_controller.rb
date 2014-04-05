@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 	end
   
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     Visit.track(@post, request.remote_ip)
     @comment = Comment.new
     @comments = @post.comments
@@ -36,12 +36,12 @@ class PostsController < ApplicationController
   def index 
     if params[:search]
       @search_content = params[:search][:search]
-      @posts = Post.paginate(:page => params[:page], :per_page => 3).where("title ILIKE ? OR body ILIKE ?", "%#{@search_content}%", "%#{@search_content}%").order("created_at DESC")
+      @posts = Post.friendly.paginate(:page => params[:page], :per_page => 3).where("title ILIKE ? OR body ILIKE ?", "%#{@search_content}%", "%#{@search_content}%").order("created_at DESC")
       flash.now[:notice] = "No results returned for '#{@search_content}'" if @posts.empty?
     elsif params[:tag]
       @posts = Tag.find_by(name: params[:tag]).posts.paginate(:page => params[:page], :per_page => 3).order("created_at DESC") #Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
     else
-      @posts= Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+      @posts= Post.friendly.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
     end
 
     @tags = Tag.all
@@ -50,12 +50,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @tags = Tag.all
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @post.update(post_params)
     @post.tags.clear
     
@@ -76,7 +76,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @post.delete
     flash[:notice] = "'#{@post.title}' has been removed."
     redirect_to posts_path

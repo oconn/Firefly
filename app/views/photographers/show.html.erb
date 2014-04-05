@@ -1,0 +1,40 @@
+<h1 class="page-title"><%= @photographer.first_name %></h1>
+<div class="row" style="margin-top: 2em;">
+	<div class="small-12 medium-3 columns user-info-block">
+		<div class="profile-pic">
+			<%= image_tag @photographer.profile_image %>
+		</div>
+		<p><%= "#{@photographer.first_name} #{@photographer.last_name}" %></p>
+		<% if photographer_signed_in? && @photographer == current_photographer %>
+			<%= link_to "Edit Profile Image", photographer_profile_image_path(@photographer.id) %>
+		<% end %>
+	</div>
+</div>
+
+<% if @photographer.calendar %>
+	<p id="cal-path" style="display: none;"><%= @photographer.calendar.feed %></p>
+	<div class="row photographer-calendar">
+
+		<% if photographer_signed_in? && current_photographer.id == @photographer.id %>
+			<div class="small-10 small-offset-1 medium-6 medium-offset-3 columns">
+				<%= form_for :calendar, url: update_calendar_path(@photographer.calendar.id) do |f| %>
+					<%= f.text_field :feed, placeholder: "Google Feed URL", value: @photographer.calendar.feed %>
+					<%= f.submit "Update Feed" %>
+				<% end %>
+			</div>
+		<% end %>
+
+		<div class="small-12">
+			<div id='calendar'></div>
+		</div>
+	</div>
+
+	<%= stylesheet_link_tag "fullcalendar.css" %>
+	<%= stylesheet_link_tag "fullcalendar.print.css" %>
+	<%= javascript_include_tag "moment.min" %>
+	<%= javascript_include_tag "fullcalendar.min" %>
+	<%= javascript_include_tag "gcal" %>
+	<%= javascript_include_tag "my_cal" %>
+<% end %>
+
+

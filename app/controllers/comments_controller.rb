@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_filter :check_if_blocked, only: [:create]
 
   def create
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     
     if @comment.nickname != ""
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 
   def block_user
     @comment = Comment.find(params[:id])
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
     
     case params[:block_user][:block_user]
     when "1"
