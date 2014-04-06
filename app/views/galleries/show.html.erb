@@ -1,36 +1,38 @@
-<% content_for :header_links do %>
-  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/sunny/jquery-ui.css" id="theme">
-	<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-<% end %>
-
 <%= link_to "Back", user_galleries_path(@user) %>
 
 <h1 class="page-title"><%= @gallery.name %></h1>
-	<!-- The dialog widget -->
-	<div id="blueimp-gallery-dialog" data-show="fade" data-hide="fade">
-	    <!-- The gallery widget  -->
-	    <div class="blueimp-gallery blueimp-gallery-carousel blueimp-gallery-controls">
-	        <div class="slides"></div>
-	        <a class="prev">‹</a>
-	        <a class="next">›</a>
-	        <a class="play-pause"></a>
-	    </div>
-	</div>
-
-<div class="row">
-	<% if @images %>
-		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
-			<% @images.each do |image| %>
-			  <li>
-			  	<a href="<%= image.image_path.url %>" data-dialog><%= image_tag(image.image_path.url(:thumb)) %></a>
-          <% if photographer_signed_in? && current_photographer.id == @gallery.photographer_id %>
-            <%= link_to "Remove Image", image_path(image), method: :delete, data: {confirm: "Are you sure you want to remove this image?"} %> 
-          <% end %>
-			  </li>
-			<% end %> 
-		</ul>
-	<% end %>
+	
+<div id="links">
+	<ul class="small-block-grid-3 medium-block-grid-5 large-block-grid-7">
+		<% @images.each do |image| %>
+	    <li><%= link_to image_tag(image.image_path.url(:thumb), title: "test", alt: "test"), image.image_path.url(:original) %></li>
+		<% end %>
+	</ul>
 </div>
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+	<div class="slides"></div>
+	<h3 class="title"></h3>
+	<a class="prev">‹</a>
+	<a class="next">›</a>
+	<a class="close">×</a>
+	<a class="play-pause"></a>
+	<ol class="indicator"></ol>
+</div>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+<%= javascript_include_tag "blueimp-gallery.min.js" %>
 
 <% if photographer_signed_in? %>
   <div class="row">
@@ -52,7 +54,4 @@
 
 		</div>
 	</div>
-<% end %>
-
-<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-<%= javascript_include_tag "jquery.image-gallery.min" %>  
+<% end %>  

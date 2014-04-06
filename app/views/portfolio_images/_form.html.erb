@@ -1,0 +1,10 @@
+<%= form_for @portfolio_image do |f| %>
+  <% if @errors %>
+    <%= @errors %>
+  <% end %>
+
+  <%= f.label :image_path, "Upload Image" %>
+  <%= f.file_field :image_path %>
+
+  <%= f.submit "Upload" %>
+<% end %>

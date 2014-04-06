@@ -1,0 +1,10 @@
+<%= form_for @blog_image do |f| %>
+  <% if @errors %>
+    <%= @errors %>
+  <% end %>
+
+  <%= f.label :blog_image %>
+  <%= f.file_field :image_path %>
+
+  <%= f.submit %>
+<% end %>

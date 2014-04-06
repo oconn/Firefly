@@ -1,0 +1,9 @@
+<%= link_to "Add Image", new_blog_image_path %>
+
+<% @blog_images.each do |image| %>
+	<div class="small-12 columns blog-image-list">
+		<%= image_tag image.image_path.url(:thumb), alt: "Blog Image #{image.id}" %>
+		<%= link_to "Remove Image", blog_image_path(image), method: :delete, data: {confirm: "Are you sure?"} %>
+		<p><%= image.image_path.url(:original) %></p>
+	</div>
+<% end %>

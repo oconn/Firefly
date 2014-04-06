@@ -1,0 +1,36 @@
+<div id="links">
+	<ul class="small-block-grid-3 medium-block-grid-5 large-block-grid-7">
+		<% @portfolio_images.each do |image| %>
+	    <li><%= link_to image_tag(image.image_path.url(:thumb), title: "test", alt: "test"), image.image_path.url(:original) %></li>
+		<% end %>
+	</ul>
+</div>
+
+<% if photographer_signed_in? %>
+  <%= link_to "Add Image", new_portfolio_image_path %>
+<% end %>
+
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>
+
+<script>
+document.getElementById('links').onclick = function (event) {
+    event = event || window.event;
+    var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {index: link, event: event},
+        links = this.getElementsByTagName('a');
+    blueimp.Gallery(links, options);
+};
+</script>
+
+<%= javascript_include_tag "blueimp-gallery.min.js" %>

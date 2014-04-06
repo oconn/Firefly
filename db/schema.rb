@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403210343) do
+ActiveRecord::Schema.define(version: 20140405141143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20140403210343) do
   end
 
   add_index "blacklist_ips", ["ip_address"], name: "index_blacklist_ips_on_ip_address", using: :btree
+
+  create_table "blog_images", force: true do |t|
+    t.string   "image_path_file_name"
+    t.string   "image_path_content_type"
+    t.integer  "image_path_file_size"
+    t.datetime "image_path_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "calendars", force: true do |t|
     t.integer "photographer_id"
@@ -120,14 +129,6 @@ ActiveRecord::Schema.define(version: 20140403210343) do
   end
 
   add_index "portfolio_images", ["portfolio_id"], name: "index_portfolio_images_on_portfolio_id", using: :btree
-
-  create_table "portfolios", force: true do |t|
-    t.integer  "photographer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "portfolios", ["photographer_id"], name: "index_portfolios_on_photographer_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.integer  "photographer_id"
