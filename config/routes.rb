@@ -29,6 +29,10 @@ Firefly::Application.routes.draw do
     end
   end
 
+  resources :contacts, :only => [:new, :create] do
+    get 'thank_you', :on => :collection
+  end
+
 
   match "/admin", to: "admins#index", via: :get, as: "admin"
 
