@@ -79,14 +79,16 @@ Firefly::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'http://pacific-shore-4745.herokuapp.com' }
+
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'example.com',
-    user_name:            '<username>',
-    password:             '<password>',
+    domain:               'heroku.com',
+    user_name:            ENV['GMAIL_USER'],
+    password:             ENV['GMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  
   }
