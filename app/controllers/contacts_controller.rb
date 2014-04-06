@@ -9,7 +9,8 @@ class ContactsController < ApplicationController
     
     if @contact.valid?
       ContactMailer.send_form(@contact).deliver
-      render :thank_you
+      flash[:notice] = "Your message has been sent. Thank You."
+      redirect_to root_path
     else
       @errors = @contact.errors.messages
       render :new
