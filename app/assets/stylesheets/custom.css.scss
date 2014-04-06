@@ -6,29 +6,24 @@ $nude: #f6e4da;
 $mint: #daf6f5;
 $cocoa: #b6a69b;
 $pale_yellow: #fffbd4;
-$light_gray: #cfcece;
+$light_gray: rgb(206, 206, 206);
+$light_white: #F9F9F9;
+
+$cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
 body {
-  background-color: $nude;
+  background-color: $light_white;
 }
 
 .container {
 	width: 95%;
 	margin: 0 auto;
+  min-height: 100%;
 }
 
 .brand {
   height: 100px;
   margin: 0 2em;
-  p {
-    margin: 0;
-    line-height: 33.333px;
-    &:last-child {
-      color: red;
-      font-family: freebooter;
-    }
-  }
-
 }
 
 .page-title {
@@ -47,13 +42,13 @@ ul.crud-links {
 
 .alert-success {
 	margin: 1em;
-  background-color: #3CFF97;
-  border: 2px solid #33D980;
-  border-radius: 1.5em;
+  background-color: $teal;
+  border: 2px solid $dark_teal;
+  // border-radius: 1.5em;
   p {
   	font-size: 1em;
   	text-align: center;
-  	color: #104227;
+  	color: $light_white;
   	padding: 0.25em !important;
   	margin-bottom: 0;
   }
@@ -63,7 +58,7 @@ ul.crud-links {
   margin: 1em;
   background-color: #EB5856;
   border: 2px solid #EB5856;
-  border-radius: 1.5em;
+  // border-radius: 1.5em;
   p {
     font-size: 1em;
     text-align: center;
@@ -84,10 +79,10 @@ ul.crud-links {
 
 
 .custom-nav {
-  background-color: $nude;
+  background-color: #F9F9F9;
 
   #logo {
-    max-height: 100px;
+    max-height: 120px;
     display: block;
     margin: 0 auto;
   }
@@ -95,13 +90,13 @@ ul.crud-links {
     font-size: 0.8em;
     color: $teal;
     position: fixed;
-    top: 0; 
+    top: 0.3em; 
     right: 0px;
     padding: 0 5px;
     line-height: 80px;
     z-index: 100;
-    background-color: black;
-    border-radius: 0 0 0 1em;
+    background-color: $light_gray;
+    font-family: $cgothic;
     &:hover {
       color: $dark_teal;
     }
@@ -111,7 +106,7 @@ ul.crud-links {
 #nav-list {
   z-index: 90;
   list-style: none;
-  background-color: black;
+  background-color: $light_gray;
   display: none;
   position: fixed;
   right: 0;
@@ -121,26 +116,50 @@ ul.crud-links {
   min-height: 100%;
   li {
     font-family: book;
-    padding: 0.4em 2em;
+    // padding: 0.4em 2em;
     &:first-child {
-      margin-top: 70px;
+      margin-top: 80px;
     }
 
     a {
       color: $teal;
+      padding: 0.2em 2em;
+      display: block;
       font-size: 1.4em;
       white-space: nowrap;
+      font-family: $cgothic;
       &:hover {
-        color: $dark_teal;
+        color: $light_white;
+        background-color: $dark_teal;
       }
     }
   }
 }
 
-.slideshow-container {
-  img {
-    border: 2em solid black;
+#slideshow {
+  position: relative;  
+  margin: 1.5em auto;
+  div{
+    max-height: 75%;
+    margin: 0 auto;
+    display: block;
+    position: absolute; 
   }
+}
+
+#tag-logo {
+  position: fixed;
+  bottom: 0.5em;
+  left: 0.5em;
+  width: 140px;
+  z-index: 100;
+}
+
+.footer {
+  width: 100%;
+  height: 10em;
+  background-color: $teal;
+  color: white;
 }
 
 /* **** Honeypot for forms **** */

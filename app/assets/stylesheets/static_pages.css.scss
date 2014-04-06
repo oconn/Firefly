@@ -1,3 +1,50 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$butter: #fff8b0;
+$teal: #74a9a8;
+$dark_teal: #547A7A;
+$dark_gray: #939191;
+$nude: #f6e4da;
+$mint: #daf6f5;
+$cocoa: #b6a69b;
+$pale_yellow: #fffbd4;
+$light_gray: rgb(206, 206, 206);
+$light_white: #F9F9F9;
+
+$cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+
+.about-container {
+	display: table;
+  background-color: $nude; 
+  padding: 1em;
+	#bio-img {
+    position: relative;  
+  } 
+}
+
+.box-2 {
+}
+
+.box-6 {
+	ul {
+		list-style: none;
+		li {
+			display: inline;
+			margin: 0.1em;
+		}
+	}
+}
+
+@media (min-width: 640px) {
+  .box-6 {
+		ul {
+			list-style: none;
+			li {
+				display: block;
+				margin: 1em auto;
+			}
+		}
+	}
+}

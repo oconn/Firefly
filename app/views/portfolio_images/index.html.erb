@@ -1,7 +1,11 @@
 <div id="links">
 	<ul class="small-block-grid-3 medium-block-grid-5 large-block-grid-7">
 		<% @portfolio_images.each do |image| %>
-	    <li><%= link_to image_tag(image.image_path.url(:thumb), title: "test", alt: "test"), image.image_path.url(:original) %></li>
+	    <li><%= link_to image_tag(image.image_path.url(:thumb), title: "test", alt: "test"), image.image_path.url(:original) %>
+        <% if photographer_signed_in? %>
+          <%= link_to "Delete", portfolio_image_path(image), method: :delete, data: {confirm: "Are you sure?"} %>
+        <% end %>
+      </li>
 		<% end %>
 	</ul>
 </div>

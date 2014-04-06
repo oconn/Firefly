@@ -19,6 +19,13 @@ class PortfolioImagesController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    @portfolio_image = PortfolioImage.find(params[:id])
+    @portfolio_image.destroy
+    flash[:notice] = "Image Removed"
+    redirect_to portfolio_images_path
+  end
   
   private
 

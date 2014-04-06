@@ -24,19 +24,3 @@
  $light_gray: #cfcece;
  
  @import "font-awesome";
- 
- @font-face {
-  font-family: 'freebooter';
-  src: url(font-path('freebooter-webfont.eot') + "?#iefix") format('embedded-opentype'),
-       url(font-path('freebooter-webfont.woff')) format('woff'), 
-       url(font-path('freebooter-webfont.ttf'))  format('truetype'),
-       url(font-path('freebooter-webfont.svg') + "#MyFont") format('svg');
-}
-
-@font-face {
-  font-family: 'book';
-  src: url(font-path('book-webfont.eot') + "?#iefix") format('embedded-opentype'),
-       url(font-path('book-webfont.woff')) format('woff'), 
-       url(font-path('book-webfont.ttf'))  format('truetype'),
-       url(font-path('book-webfont.svg') + "#MyFont") format('svg');
-}
