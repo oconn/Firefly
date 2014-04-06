@@ -18,6 +18,7 @@ Firefly::Application.routes.draw do
 
   match "/calendars/:photographer_id", to: "calendars#create", via: :post, as: "add_calendar"
   match "/calendars/update/:id", to: "calendars#update", via: :post, as: "update_calendar"
+
   resources :users, shallow: true do 
     member do 
       get 'email'
@@ -38,8 +39,8 @@ Firefly::Application.routes.draw do
 
   match "/photographer_profile_image/:id", to: "photographers#edit_profile_image",   via: :get,  as: "photographer_profile_image"
   match "/photographer_profile_image/:id", to: "photographers#update_profile_image", via: :post
-
-
+  
+  match "/about_leah", to: "static_pages#about", via: :get, as: "about"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
