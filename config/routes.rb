@@ -7,9 +7,14 @@ Firefly::Application.routes.draw do
   resources :posts do 
     resources :comments
   end
+
+  resources :blog_images
+  
   resources :tags
 
   resources :photographers
+
+  resources :portfolio_images
 
   match "/calendars/:photographer_id", to: "calendars#create", via: :post, as: "add_calendar"
   match "/calendars/update/:id", to: "calendars#update", via: :post, as: "update_calendar"
