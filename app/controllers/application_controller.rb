@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_in_path_for(resource)
+  	if resource.class.name == "Photographer"
+      admin_path
+    elsif resource.class.name == "User"
+      user_path(current_user)
+    end
+  end
+
   private
 
   def configure_permitted_parameters

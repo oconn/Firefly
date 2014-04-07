@@ -1,4 +1,4 @@
-<%= link_to "Back", user_galleries_path(@user) %>
+<%= link_to "Back", user_path(@user.id), class: "button" %>
 
 <h1 class="page-title"><%= @gallery.name %></h1>
 	
@@ -48,10 +48,7 @@ document.getElementById('links').onclick = function (event) {
         <%= f.file_field :image_path, multiple: true, name: "image[image_path]" %></div>
         <div><%= f.submit "Upload Image" %></div>
 		  <% end %>
-
-		  <% # jquery upload template # %>
-			<script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="bar" style="width: 0%"></div></div></div></script>
-
+		  
 		</div>
 	</div>
 <% end %>  

@@ -83,8 +83,8 @@ ul.crud-links {
 
   #logo {
     max-height: 120px;
-    display: block;
     margin: 0 auto;
+    display: table;
   }
   #menu-link {
     font-size: 0.8em;
@@ -118,7 +118,7 @@ ul.crud-links {
     font-family: book;
     // padding: 0.4em 2em;
     &:first-child {
-      margin-top: 80px;
+      margin-top: 90px;
     }
 
     a {

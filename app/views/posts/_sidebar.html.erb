@@ -27,11 +27,12 @@
   </div>
 
   <h3>Tags</h3>
-  <div class="tagged-posts">
-
-    <% @tags.each do |tag| %>
-      <li><%= link_to tag.name, posts_path(tag: tag.name) %></li>
-    <% end %>
+  <div class="tag-list">
+    <ul>
+      <% @tags.each do |tag| %>
+        <li><%= link_to tag.name, posts_path(tag: tag.name) %></li>
+      <% end %>
+    </ul>
     
   </div> 
 </div>

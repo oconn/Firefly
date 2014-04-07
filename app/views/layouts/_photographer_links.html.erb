@@ -1,7 +1,6 @@
 <li><%= link_to "Gallery", portfolio_images_path %></li>
 <li><%= link_to "Blog", posts_path %></li>
 <li><%= link_to "Add Post", new_post_path %></li>
-<li><%= link_to "Profile", photographer_path(current_photographer.id) %></li>
 <% if current_photographer.admin? %>
   <li><%= link_to "Admin", admin_path %></li>  
 <% end %>

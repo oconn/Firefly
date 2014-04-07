@@ -1,17 +1,15 @@
-<h1 class="page-title"><%= @user.first_name %></h1>
+<h1 class="page-title"><%= @user.fullname %></h1>
 
-<div class="row" style="margin-top: 2em;">
-	<div class="small-12 medium-3 columns user-info-block">
-		<div class="profile-pic">
-			<%= image_tag @user.profile_image %>
-		</div>
-		<p><%= "#{@user.first_name} #{@user.last_name}" %></p>
-		<%= link_to "Edit Profile Image", profile_image_path(@user.id) %>
-	</div>
-
-	<div class="small-12 medium-9 columns user-right-pannel">
-		<%= link_to "My Galleries", user_galleries_path(@user), class: "my-galleries" %>
-		<%= link_to "Schedule A Session", photographer_path(1), class: "schedule-session" %>
-		<%= link_to "Share Gallery", "#", class: "share-gallery" %>   
-	</div>
-</div>
+<% if @user.galleries.empty? %>
+  <p>Thank you for signing up with Firefly Photography. If you recently completed a session I know you are anxious to view your pictures. This page is where all your galleries will be displayed as soon as the post processing is completed. I hope you enjoyed your session!</p>
+  <p>~ Leah O'Connell</p>
+<% else %>
+  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
+	  <% @user.galleries.each do |gallery| %>
+      <li>
+		    <h2><%= link_to gallery.name, gallery_path(gallery) %></h2>
+		    <%= link_to image_tag(gallery.cover_image.url(:original)), gallery_path(gallery) %>
+		  </li>
+	  <% end %>
+	</ul>
+<% end %>
