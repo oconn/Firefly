@@ -160,12 +160,25 @@ ul.crud-links {
   height: 10em;
   background-color: $teal;
   color: white;
+  p {
+    float: right;
+    margin: 1em;
+  }
+
+  .footer-social-media {
+    float: right;
+    margin: 3em 1em auto auto;
+    li {
+      display: inline;
+    }
+  }
 }
 
 /* **** Honeypot for forms **** */
 .nickname-field {
-	display: none;
+  display: none;
 }
+
 
 @media (min-width: 640px) {
   .custom-nav {
