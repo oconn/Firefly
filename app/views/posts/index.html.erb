@@ -1,10 +1,10 @@
 <% provide(:title, "Blog") %>
 
 <div class="row">
-  <div class="small-12 medium-9 columns">
+  <div class="small-12 medium-9 posts columns">
     <% @posts.each do |post| %>
 
-      <h2><%= link_to post.title, post_path(post) %></h2>
+      <h2 class="post-title"><%= link_to "#{post.title} <small>read full post</small>".html_safe, post_path(post) %></h2>
 
       <%= link_to image_tag(post.cover_image.url(:original)), post_path(post) %>
 

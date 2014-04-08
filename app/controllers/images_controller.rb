@@ -30,8 +30,6 @@ class ImagesController < ApplicationController
   private
 
   def image_params 
-  	if params[:image]
-	    params.require(:image).permit(:image_path)
-	  end
+	  params.fetch(:image, {}).permit(:image_path)
   end
 end

@@ -11,7 +11,6 @@ class BlogImagesController < ApplicationController
 
   def create
     @blog_image = BlogImage.new(blog_image_params)
-    p "[OUT] #{params}"
     if @blog_image.save
       flash[:notice] = "Blog Image added"
       redirect_to blog_images_path
@@ -31,7 +30,7 @@ class BlogImagesController < ApplicationController
   private
   
   def blog_image_params
-    params.require(:blog_image).permit(:image_path)
+    params.fetch(:blog_image, {}).permit(:image_path)
   end
 
 	def authenticate_admin
