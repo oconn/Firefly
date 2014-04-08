@@ -42,5 +42,5 @@
 </div>
 
 <div class="pagination">
-  <%= will_paginate @posts %>
+  <%= will_paginate @posts, inner_window: 1, previous_label: fa_icon("arrow-left"), next_label: fa_icon("arrow-right") %>
 </div>
