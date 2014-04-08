@@ -47,6 +47,9 @@ gem 'jquery-fileupload-rails'
 
 gem 'friendly_id', '~> 5.0.0'
 
+gem 'blueimp-gallery'
+
+
 # Amazon Web Services
 gem 'aws-sdk'
 
