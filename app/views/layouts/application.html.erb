@@ -11,19 +11,19 @@
 </head>
 <body>
 
-  <%= render 'layouts/navigation' %>
 
-	<div class="container">
+  <div class="container">
+    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/banner' %>
 		<%= render 'layouts/messages' %>
 		<%= yield %>
-    <%= yield :tag_logo %>
 	</div>
 
   <div class="footer">
     <ul class="footer-social-media">
       <li><%= link_to image_tag("facebook.png"), "https://www.facebook.com/LOFirefly", target: "_blank" %></li>
       <li><%= link_to image_tag("googleplus.png"), "https://plus.google.com/u/0/101742232499843150869/posts", target: "_blank" %></li>
-      <li><%= link_to image_tag("instagram.png"), "#" %></li>
+      <li><%= link_to image_tag("instagram.png"), "http://www.instagram.com/lo_firefly", target: "_blank" %></li>
       <li><%= link_to image_tag("pinterest.png"), "http://www.pinterest.com/leahophoto/", target: "_blank" %></li>
       <li><%= link_to image_tag("twitter.png"), "https://twitter.com/lofirefly", target: "_blank" %></li>
     </ul>

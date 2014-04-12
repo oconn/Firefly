@@ -1,20 +1,34 @@
 <% provide(:title, "About Leah") %>
-<%= content_for :tag_logo do %>
-  <%= image_tag "FFlogo2.png", id: "tag-logo" %>
-<% end %>
 
-<div class="about-container">
-	<div class="small-12 medium-4 columns box-1">
-		<%= image_tag "aboutme.jpg", id: "bio-img" %>
+<div class="about-me-container">
+	<div class="row">
+		<div class="small-12 medium-6 columns">
+			<h4>I’m Leah O’Connell and I have the best job in the world.</h4>
+			<p>Once I discovered the joy I got from photographing children and families, I literally could not imagine myself doing anything else as a career.</p>
+			<p>If you like yoga, board games, quaint boutique-y shops, a good cup-a-joe, turning back the pages of a book, or adventures in the great outdoors, chances are we could be friends! If you’re consistently grumpy, hate sunshine, or lack an understanding of sarcasm, chances are we could not.</p>
+			<p>I am wife to the most wonderfully supportive husband named Matt who is also my business partner and web designer, (bonus!). We have an Australian Shepherd puppy named Bourbon and together we are just happily navigating life in all its glory!</p>
+		</div>
+
+		<div class="small-12 medium-6 columns">
+			<%= image_tag "aboutme.jpg", alt: "Leah O'Connell" %>
+		</div>
 	</div>
-	
-	<div class="small-12 medium-2 columns box-6">
-		<ul>
-			<li><%= link_to image_tag("facebook.png"), "https://www.facebook.com/LOFirefly", target: "_blank" %></li>
-			<li><%= link_to image_tag("googleplus.png"), "https://plus.google.com/u/0/101742232499843150869/posts", target: "_blank" %></li>
-			<li><%= link_to image_tag("instagram.png"), "#" %></li>
-			<li><%= link_to image_tag("pinterest.png"), "http://www.pinterest.com/leahophoto/", target: "_blank" %></li>
-			<li><%= link_to image_tag("twitter.png"), "https://twitter.com/lofirefly", target: "_blank" %></li>
-		</ul>
+
+	<div class="row">
+		<div class="small-6 medium-3 columns">
+			<%= image_tag "quote.png", alt: "quote" %>
+		</div>
+
+		<div class="small-12 medium-6 columns">
+			<%= image_tag "mommy_pic.jpg", alt: "Mom and me" %>
+		</div>
+		
+		<div class="small-6 medium-3 columns">
+			<h4>The Firefly Philosophy</h4>
+
+			<p>Firefly Photography revolves around celebrating family, reveling in childhood, and spreading love. Every aspect of the client experience exemplifies my desire to let your love glow through quality images and artwork that puts precious smiles and special moments on display. The modern family is active and lives life to the fullest so I strive to make each customer experience memorable, personal, and efficient; I pride myself if quick turn-around of products without ever sacrificing style, quality, or value.</p>
+
+			<%= link_to "Click here to join the Firefly Family", "#" %>
+		</div>
 	</div>
 </div>

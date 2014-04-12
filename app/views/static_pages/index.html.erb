@@ -1,28 +1,12 @@
-<%= content_for :tag_logo do %>
-  <%= image_tag "FFlogo2.png", id: "tag-logo" %>
-<% end %>
 
-<% if !(photographer_signed_in? || user_signed_in?) %>
-	<%#= link_to "Sign Up", new_user_registration_path %>
-<% end %>
+<div class="row">
+  <% if !(photographer_signed_in? || user_signed_in?) %>
+  	<%#= link_to "Sign Up", new_user_registration_path %>
+  <% end %>
 
-<div id="slideshow">
-	<div><%= image_tag "home1.jpg" %></div>
-	<div><%= image_tag "home3.jpg" %></div>
-	<div><%= image_tag "home2.jpg" %></div>
+  <div class="small-12 columns">
+    <div><%= image_tag "home1.jpg" %></div>
+  	<div><%= image_tag "home3.jpg" %></div>
+  	<div><%= image_tag "home2.jpg" %></div>
+  </div>
 </div>
-
-<script>
-$(function(){
-  $("#slideshow > div:gt(0)").hide();
-
-  setInterval(function() { 
-  $('#slideshow > div:first')
-    .fadeOut(1000)
-    .next()
-    .fadeIn(1000)
-    .end()
-    .appendTo('#slideshow');
-  }, 3500);
-})
-</script>
