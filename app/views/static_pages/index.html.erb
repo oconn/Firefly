@@ -4,9 +4,15 @@
   	<%#= link_to "Sign Up", new_user_registration_path %>
   <% end %>
 
-  <div class="small-12 columns">
-    <div><%= image_tag "home1.jpg" %></div>
-  	<div><%= image_tag "home3.jpg" %></div>
-  	<div><%= image_tag "home2.jpg" %></div>
+  <div class="small-12 columns cycle-slideshow" 
+    data-cycle-fx="fadeout"
+    data-cycle-speed="1200"
+    data-cycle-timeout="3000"
+    data-cycle-next="#next">
+    <%= image_tag "home1.jpg" %>
+  	<%= image_tag "home3.jpg" %>
+  	<%= image_tag "home2.jpg" %>
   </div>
 </div>
+
+<%= javascript_include_tag "jquery-cycle2-2.1.4" %>
