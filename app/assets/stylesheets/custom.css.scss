@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'littlebird';
+  src: url('little_bird-webfont.eot?#iefix') format('embedded-opentype'), 
+       url('little_bird-webfont.woff') format('woff'), 
+       url('little_bird-webfont.ttf')  format('truetype'),
+       url('little_bird-webfont.svg#svgFontName') format('svg');
+}
+
 $sun: #fff21a;
 $mint: #c5efc3;
 $dark_mint: #92cc8f;
@@ -90,7 +98,7 @@ ul.crud-links {
     right: 0px;
     padding: 0 5px;
     line-height: 80px;
-    z-index: 100;
+    z-index: 1000;
     background-color: $light_gray;
     font-family: $cgothic;
     &:hover {
@@ -100,7 +108,7 @@ ul.crud-links {
 }
 
 #nav-list {
-  z-index: 90;
+  z-index: 900;
   list-style: none;
   background-color: $light_gray;
   display: none;
@@ -142,14 +150,6 @@ ul.crud-links {
     display: block;
     position: absolute; 
   }
-}
-
-#tag-logo {
-  position: fixed;
-  bottom: 0.5em;
-  left: 0.5em;
-  width: 140px;
-  z-index: 100;
 }
 
 .footer {

@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@font-face {
+  font-family: 'littlebird';
+  src: url('little_bird-webfont.eot?#iefix') format('embedded-opentype'), 
+       url('little_bird-webfont.woff') format('woff'), 
+       url('little_bird-webfont.ttf')  format('truetype'),
+       url('little_bird-webfont.svg#svgFontName') format('svg');
+}
+
 $sun: #fff21a;
 $mint: #c5efc3;
 $dark_mint: #92cc8f;
@@ -15,26 +23,39 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
   h4 {
     font-size: 1em;
+    font-family: littlebird;
   }
   p {
     font-size: 0.8em;
   }
-
+  .row {
+    margin: 1em auto;
+  }
 }
 
-.slideshow-wrap {
-  display: block; 
-  padding: 1em;
+.inside-scoop {
+  div {
+    h2 {
+      font-family: littlebird;
+      font-size: 1.4em;
+    }
+    p {
+      font-family: $cgothic;
+      font-size: 0.9em;
+    }
+    img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
 }
 
-@media (min-width: 640px) {
-  .box-6 {
-		ul {
-			list-style: none;
-			li {
-				display: block;
-				margin: 1em auto;
-			}
-		}
-	}
+.slide-show {
+
+  img {
+    position: absolute;
+    display: none;
+  }
 }
+
+
