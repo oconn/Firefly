@@ -15,6 +15,21 @@
 
       <%= f.label :email %>
       <%= f.text_field :email %>
+ 
+      <%= f.label :number %>
+      <%= f.text_field :number %>
+
+      <%= f.label :preferred_date %>
+      <%= f.date_field :preferred_date %>
+
+      <%= f.label :backup_date %>
+      <%= f.date_field :backup_date %>
+
+      <%= f.label :session_type %>
+      <%= f.select :session_type, ["Single Subject", "Family"], include_blank: true %>
+
+      <%= f.label :referral, "How did you hear about Firefly?" %>
+      <%= f.select :referral, ["Facebook", "Word of mouth", "Google Search", "Advertisment", "Other"], include_blank: true %>
 
       <%= f.label :message %>
       <%= f.text_area :message, rows: "8" %>

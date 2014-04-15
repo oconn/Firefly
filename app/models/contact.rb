@@ -4,9 +4,9 @@ class Contact
   include ActiveModel::Validations
   include ActionView::Helpers::TextHelper
   
-	attr_accessor :name, :email, :message, :nickname
+	attr_accessor :name, :email, :message, :nickname, :number, :preferred_date, :backup_date, :session_type, :referral
 
-  validates :name, 
+  validates :name, :number, :preferred_date, :backup_date, :session_type, :referral,
             :presence => true
   
   validates :email,
