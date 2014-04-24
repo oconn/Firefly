@@ -51,10 +51,17 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .slide-show {
+  margin-bottom: 2em;
+}
 
-  img {
-    position: absolute;
-    display: none;
+.quote {
+  font-family: $cgothic;
+
+  p {
+    font-size: 0.9em;
+  }
+  .name {
+    font-family: littlebird;
   }
 }
 
