@@ -4,10 +4,10 @@
 
 @font-face {
   font-family: 'littlebird';
-  src: url('little_bird-webfont.eot?#iefix') format('embedded-opentype'), 
-       url('little_bird-webfont.woff') format('woff'), 
-       url('little_bird-webfont.ttf')  format('truetype'),
-       url('little_bird-webfont.svg#svgFontName') format('svg');
+  src: asset-url('little_bird-webfont.eot?#iefix') format('embedded-opentype'), 
+       asset-url('little_bird-webfont.woff') format('woff'), 
+       asset-url('little_bird-webfont.ttf') format('truetype'),
+       asset-url('little_bird-webfont.svg#svgFontName') format('svg');
 }
 
 $sun: #fff21a;
