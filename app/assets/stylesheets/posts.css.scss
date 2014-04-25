@@ -14,10 +14,10 @@ $light_gray: #cfcece;
 
 @font-face {
   font-family: 'littlebird';
-  src: url('little_bird-webfont.eot?#iefix') format('embedded-opentype'), 
-       url('little_bird-webfont.woff') format('woff'), 
-       url('little_bird-webfont.ttf')  format('truetype'),
-       url('little_bird-webfont.svg#svgFontName') format('svg');
+  src: url('<%= asset_path("little_bird-webfont.eot?#iefix") %>'), format('embedded-opentype'), 
+       url('<%= asset_path("little_bird-webfont.woff") %>'), format('woff'), 
+       url('<%= asset_path("little_bird-webfont.ttf") %>'),  format('truetype'),
+       url('<%= asset_path("little_bird-webfont.svg#svgFontName") %>'), format('svg');
 }
 
 .post {

@@ -1,17 +1,9 @@
 @font-face {
-  font-family: 'freebooter';
-  src: url(font-path('freebooter-webfont.eot') + "?#iefix") format('embedded-opentype'),
-       url(font-path('freebooter-webfont.woff')) format('woff'), 
-       url(font-path('freebooter-webfont.ttf'))  format('truetype'),
-       url(font-path('freebooter-webfont.svg') + "#MyFont") format('svg');
-}
-
-@font-face {
-  font-family: 'book';
-  src: url(font-path('book-webfont.eot') + "?#iefix") format('embedded-opentype'),
-       url(font-path('book-webfont.woff')) format('woff'), 
-       url(font-path('book-webfont.ttf'))  format('truetype'),
-       url(font-path('book-webfont.svg') + "#MyFont") format('svg');
+  font-family: 'littlebird';
+  src: url('<%= asset_path("little_bird-webfont.eot?#iefix") %>'), format('embedded-opentype'), 
+       url('<%= asset_path("little_bird-webfont.woff") %>'), format('woff'), 
+       url('<%= asset_path("little_bird-webfont.ttf") %>'),  format('truetype'),
+       url('<%= asset_path("little_bird-webfont.svg#svgFontName") %>'), format('svg');
 }
 
 // Foundation by ZURB
