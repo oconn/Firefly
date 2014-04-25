@@ -2,7 +2,7 @@ Firefly::Application.routes.draw do
   root 'static_pages#index'
 
   devise_for :photographers
-  # devise_for :users
+  devise_for :users
 
   resources :posts do 
     resources :comments
