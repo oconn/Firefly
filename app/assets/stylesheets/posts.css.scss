@@ -3,36 +3,52 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
-.posts {
-  .post-title {
-    a {
-      color: #1F1F1F;
-      font-size: 0.8em;
-      font-family: $cgothic;
-      &:hover {
-        text-shadow: 0px 2px 2px rgba(255, 255, 255, 0.4);
-      }
-      small {
-        color: #008cba;
-      }
-    }
-  }
-  .post-description {
-    color: #2E2E2E;
-    margin: 2em auto;
-    p {
-      line-height: 1.8;
-      text-indent: 1em;
-    }
-  }
+$butter: #fff8b0;
+$dark_gray: #939191;
+$nude: #f6e4da;
+$mint: #c5efc3;
+$dark_mint: #92cc8f;
+$cocoa: #b6a69b;
+$pale_yellow: #fffbd4;
+$light_gray: #cfcece;
+
+@font-face {
+  font-family: 'littlebird';
+  src: url('little_bird-webfont.eot?#iefix') format('embedded-opentype'), 
+       url('little_bird-webfont.woff') format('woff'), 
+       url('little_bird-webfont.ttf')  format('truetype'),
+       url('little_bird-webfont.svg#svgFontName') format('svg');
 }
 
 .post {
+  border: 3px solid $mint;
+  padding: 2em 4em;
+  .post-title {
+    font-family: littlebird;
+    color: #222;
+  }
+  p {
+    color: #444;
+    font-family: $cgothic;
+  }
+}
+
+.posts {
+
   .post-title {
     margin: 1em auto;
-    color: #1F1F1F;
-    font-family: $cgothic;
     font-size: 2em;
+    color: $dark_gray;
+    font-family: littlebird;
+    a {
+      font-family: $cgothic;
+      small {
+        color: $dark_mint;
+        &:hover {
+          color: $mint;
+        }
+      }
+    }
   }
   p {
     color: #2E2E2E;
@@ -56,15 +72,21 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
 .posts-sidebar {
   h3 {
-    font-family: $cgothic;
-    color: #1F1F1F;
+    font-family: littlebird;
+    color: $dark_gray;
+    font-size: 1.4em;
+    margin-top: 1em;
   }
   p {
   	line-height: 0.8em;
   }
   a {
     font-family: $cgothic;
-  	line-height: 1.2em;
+  	line-height: 0.5em;
+    color: $dark_mint;
+    &:hover {
+      color: $mint;
+    }
   }
 }
 

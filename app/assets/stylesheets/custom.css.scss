@@ -42,6 +42,16 @@ ul.crud-links {
 	}
 }
 
+.back-button {
+  color: $dark_mint;
+  font-size: 1.2em;
+  display: table;
+  margin-bottom: 1em;
+  &:hover {
+    color: $dark_mint;
+  }
+}
+
 /* ****** Flash Messages ****** */
 
 .alert-success {

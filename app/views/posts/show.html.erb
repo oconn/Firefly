@@ -1,7 +1,7 @@
 <% provide(:title, @post.title ) %>
 <div class="row">
 	<div class="small-10 small-offset-1 post columns">
-		<%= link_to fa_icon("arrow-left", text: "Back"), posts_path %>
+		<%= link_to fa_icon("arrow-left", text: "Back"), posts_path, class: "back-button" %>
 		<h1 class="post-title"><%= @post.title %></h1>
 		
     <%= image_tag @post.cover_image.url(:original), class: "post-cover-img" %>

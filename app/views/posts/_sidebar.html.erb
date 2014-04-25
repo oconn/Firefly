@@ -8,21 +8,13 @@
     <% end %>
 
   </div>
-
+  
+  <h3>Search Blog</h3>
   <div class="search-posts">
     <%= form_for :search, url: "/posts", method: :get do |f| %>
       <%= f.search_field :search, autofocuse: true %>
       <%= f.submit "Search", class: "button tiny" %>
     <% end %>
-  </div>
-
-  <h3>Recent Posts</h3>
-  <div class="recent-posts">
-
-    <% @recent_posts.each do |post| %>
-      <p><%= link_to post.title, post_path(post) %></p>
-    <% end %>
-
   </div>
 
   <h3>Tags</h3>
