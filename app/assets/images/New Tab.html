@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/dashboard.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>New Tab</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/css/normalize.css">
+        <link rel="stylesheet" href="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/css/style.css">
+    </head>
+    <body style="zoom: 1;">
+
+        <ul id="background"><li style="background-image: url(chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/backgrounds/01.jpg); opacity: 1;"></li></ul>
+
+        <div id="widgets">
+            <div id="top-left"><div id="app-return" style="opacity: 1;"><a href="" id="app-return" class="top-nav">Apps</a></div></div>
+            <div id="top-right"><div id="todo-complete" class="metric" style="opacity: 1; display: none;">
+            <span class="metric-stat">0</span>
+            <span class="metric-label">todos complete</span>
+        </div><div id="weather" class="metric" style="opacity: 1;">
+            <div class="metric-stat">
+                <span class="icon" data-icon="H" title="Partly Cloudy"></span>59°<span class="unit hide">f</span>
+            </div>
+            <span class="location metric-label data">Stephens City</span>
+        </div></div>
+            <div id="center-above"></div>
+            <div id="center"><div id="centerclock" style="opacity: 1;">
+            <h1 class="time">14:04</h1>
+            <span class="format">AM</span>
+        </div><div id="greeting" style="opacity: 1;">
+          <h2>Good <span class="period">afternoon</span>, <span class="name">matt</span>.</h2>
+        </div></div>
+            <div id="center-below"><div id="focuses" style="opacity: 1;"><div class="prompt" style="opacity: 1; display: block;">
+            <h3>What is your main focus for today?</h3>
+            <input type="text">
+        </div>
+            <ol></ol>
+        </div></div>
+            <div id="bottom"><blockquote id="shortquote">
+            <p class="light">Yesterday, you said tomorrow.</p>
+        </blockquote></div>
+            <div id="bottom-right"><div id="todo" style="opacity: 1;">
+            <div class="todo-list">
+                <div class="todo-list-header">
+                    <a href="" class="todo-toggle todo-close">✕</a>
+                    <div id="todo-count">Nothing to do! ☺</div>
+                </div>
+                <ol>
+                </ol>
+                <input id="todo-new" class="todo-input" type="text" placeholder="New todo">
+            </div>
+            <span id="todo-remaining"></span>
+            <!--<a href="" id="clear-completed">archive done</a>-->
+            <a class="todo-toggle top-nav" href="">Todo</a>
+        <li class="placeholder" style="display: none;"></li></div></div>
+            <div id="bottom-left"><div id="background-info" class="light fadeout title-unknown source-unknown">
+            <span class="title"></span>
+            
+                <span class="source"></span>
+            
+       </div></div>
+        </div>
+
+        <!-- Handlesbars Templates (Move to external files) -->
+        <script type="text/javascript" async="" src="./New Tab_files/ga.js"></script><script id="message-template" type="text/x-handlebars-template">
+            <h4>{{title}}</h4>
+            <p>
+                <span class="message">{{message}}</span>
+            </p>
+            <a href="" class="hide"><span>✕</span></a>
+        </script>
+
+        <script id="weather-template" type="text/x-handlebars-template">
+            <div class="metric-stat">
+                <span class="icon" data-icon="{{code}}" title="{{condition}}"></span>{{temperature}}&deg;<span class="unit {{unitClass}}">{{unit}}</span>
+            </div>
+            <span class="location metric-label data">{{location}}</span>
+        </script>
+
+        <script id="todo-template" type="text/x-handlebars-template">
+            <div class="todo-list">
+                <div class="todo-list-header">
+                    <a href="" class="todo-toggle todo-close">✕</a>
+                    <div id="todo-count"></div>
+                </div>
+                <ol>
+                </ol>
+                <input id="todo-new" class="todo-input" type="text" placeholder="New todo">
+            </div>
+            <span id="todo-remaining"></span>
+            <!--<a href="" id="clear-completed">archive done</a>-->
+            <a class="todo-toggle top-nav" href="">Todo</a>
+        </script>
+
+        <script id="todo-item-template" type="text/x-handlebars-template">
+            <div class="view">
+                <a class="destroy">✕</a>
+                <label><input class="toggle" type="checkbox" {{checked}}></label><span>{{title}}</span>
+            </div>
+            <input class="edit todo-input" type="text" value="{{title}}">
+        </script>
+
+        <script id="todo-complete-template" type="text/x-handlebars-template">
+            <span class="metric-stat">{{done}}</span>
+            <span class="metric-label">{{item}} complete</span>
+        </script>
+
+        <script id="focuses-template" type="text/x-handlebars-template">
+            <ol></ol>
+        </script>
+
+        <script id="focus-prompt-template" type="text/x-handlebars-template">
+            <h3>What is your main focus for today?</h3>
+            <input type="text">
+        </script>
+
+        <script id="focus-template" type="text/x-handlebars-template">
+            <h3>{{day}}</h3>
+            <p class="todays-focus">{{focus}}<span class="delete">✕</span></p>
+        </script>
+
+        <script id="background-template" type="text/x-handlebars-template">
+            <li style="background-image: url('backgrounds/{{filename}}')"></li>
+        </script>
+
+        <script id="background-info-template" type="text/x-handlebars-template">
+            <span class="title">{{title}}</span>
+            {{#if sourceUrl}}
+                <span class="source"><a href="{{sourceUrl}}">{{source}}</a></span>
+            {{else}}
+                <span class="source">{{source}}</span>
+            {{/if}}
+       </script>
+
+        <script id="centerclock-template" type="text/x-handlebars-template">
+            <h1 class="time">{{time}}</h1>
+            <span class="format">AM</span>
+        </script>
+
+        <script id="greeting-template" type="text/x-handlebars-template">
+          <h2>Good <span class="period">{{period}}</span>, <span class="name">{{name}}</span>.</h2>
+        </script>
+
+        <script id="shortquote-template" type="text/x-handlebars-template">
+            <p class="light">{{body}}</p>
+        </script>
+
+        <script id="introduction-template" type="text/x-handlebars-template">
+            <p class="logo"><img src="img/logo-white.png"></p>
+            <p><span>Hello, what&#8217;s your name?</span> <input type="text"></p>
+        </script>
+
+        <!-- Libraries -->
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/js/jquery.min.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/js/underscore-min.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/js/backbone-min.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/js/backbone.localStorage-min.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/js/handlebars.js"></script>
+
+        <!-- App -->
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/app.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/background.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/quote.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/focus.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/todo.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/weather.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/message.js"></script>
+        <script src="chrome-extension://laookkfknpbbblfpciffpaejjkokdgca/app/main.js"></script>
+
+    
+
+</body></html>

@@ -2,15 +2,22 @@
 
 <div class="about-me-container">
 	<div class="row">
-		<div class="small-12 medium-6 columns">
+		<div class="small-12 medium-6 columns about-text">
 			<h4>I’m Leah O’Connell and I have the best job in the world.</h4>
-			<p>Once I discovered the joy I got from photographing children and families, I literally could not imagine myself doing anything else as a career.</p>
-			<p>If you like yoga, board games, quaint boutique-y shops, a good cup-a-joe, turning back the pages of a book, or adventures in the great outdoors, chances are we could be friends! If you’re consistently grumpy, hate sunshine, or lack an understanding of sarcasm, chances are we could not.</p>
-			<p>I am wife to the most wonderfully supportive husband named Matt who is also my business partner and web designer, (bonus!). We have an Australian Shepherd puppy named Bourbon and together we are just happily navigating life in all its glory!</p>
-		</div>
+			<p>I grew up in a small town in northern VA called Stephens City, the kind of town where you have to make your own fun. For me, that meant I was rarely seen without a camera in my hands and some crazy idea up my sleeve. I went to JMU in Harrisonburg, VA for my undergraduate degree in English and my Masters degree in Secondary Education. While fostering my love of literature and writing, I worked part-time in portrait studios. The monotony of that cookie-cutter model for photography drove me crazy but it also gave me the opportunity to practice something I had always loved and got the gears turning in my head about a future for photography that would allow me to let my creativity loose and interact with children in a real setting. I met my future husband during those college years, too, and after graduation, we got hitched and moved to Hawaii for our first duty station with the US Navy.  It was then that I bought my first professional caliber DLSR and once I re-discovered the joy I got from photographing children and families, I literally could not imagine myself doing anything else as a career. I threw myself into making my distant dream a reality by taking classes, studying shooting technique and business practices, apprenticing under two incredible established photographers on Oahu, learning Photoshop inside and out, researching the best software and practices, and just about anything else I could do to immerse myself in this art. I continue to do all of the above to be the best I can be for my clients and stay in love with every piece of what I do.</p>
+      <p>If you like yoga, board games, quaint boutique-y shops, a good cup-a-joe, turning back the pages of a book, or adventures in the great outdoors, chances are we could be friends! If you’re consistently grumpy, hate sunshine, or lack an understanding of sarcasm, chances are we could not. </p>
+      <p>I am wife to the most wonderfully supportive husband named Matt who is also my business partner and web designer, (bonus!). We have an Australian Shepherd puppy named Bourbon and together we are just happily navigating life in all its glory!</p>
 
-		<div class="small-12 medium-6 columns">
-			<%= image_tag "aboutme.jpg", alt: "Leah O'Connell" %>
+	  </div>
+
+		<div class="small-12 medium-6 columns cycle-slideshow slide-show" 
+	    data-cycle-fx="fade"
+	    data-cycle-speed="1000"
+	    data-cycle-timeout="2200" id="about1">
+	    <%= image_tag "about1.jpg" %>
+	    <%= image_tag "about4.jpg" %>
+	  	<%= image_tag "about3.jpg" %>
+	  	<%= image_tag "about2.jpg" %>
 		</div>
 	</div>
 
@@ -32,3 +39,5 @@
 		</div>
 	</div>
 </div>
+
+<%= javascript_include_tag "jquery-cycle2-2.1.4" %>
