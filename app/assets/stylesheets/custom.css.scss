@@ -15,6 +15,10 @@ $light_gray: #939292;
 
 $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
+input:invalid {
+  // background-color: red; 
+}
+
 body {
   background-color: #FFFFFF;
 }
