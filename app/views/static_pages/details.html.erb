@@ -1,48 +1,37 @@
 <div class="row inside-scoop">
-  <div class="small-12 medium-4 columns">
-    <%= image_tag "section1.png", alt: "fees chart" %>
-  </div>
-  <div class="small-12 medium-4 columns">
-    <%= image_tag "section2.jpg", alt: "Girl in tutu" %>
-  </div>
-  <div class="small-12 medium-4 columns">
-    <h2>How It Works:</h2>
-    <p>1. You contacted me for a shoot so you’re now one of my new favorite people! We’ll start chatting over email to get the ball rolling and iron out all the details including date, time, location, and styling.</p>
-    <p>2. We meet for some memory-making magic and I’ll capture all the fun for you to recap in step 4.</p>
-    <p>3. You eagerly anticipate your images for approximately 1-2 weeks while I pour over them behind-the-scenes, editing and enhancing them to their optimal, professional quality.</p>
-    <p>4. We sit down together and view your final, completed gallery from which you can choose how you’d like to enjoy your images, whether through prints, cards, digitals archives, or gorgeous artwork for your walls. We design the best fit for your needs and budget, place your order, and you’ll be enjoying your images in-hand in 7-10 days.</p>
-  </div>
-</div>
-
-<div class="row">
+  <%= image_tag "brush.png", id: "brush-logo" %>
   <div class="small-12 medium-10 medium-offset-1 coulmns toc">
-    <h2>TOC</h2>
+    <h1>Details</h1>
     <ul>
-      <li><a href="#qa">Q & A</a></li>
-      <li><a href="#session-plans">Session Plans</a></li>
-      <li><a href="#process">The Process</a></li>
-      <li><a href="#product">Products</a></li>
+      <li><a href="#qa" class="scroll">Q & A</a></li>
+      <li><a href="#session-plans" class="scroll">Session Plans</a></li>
+      <li><a href="#process" class="scroll">The Process</a></li>
+      <li><a href="#product" class="scroll">Products</a></li>
     </ul>
   </div>
 
-  <div class="small-12 medium-10 medium-offset-1 coulmns">
+  <div class="small-12 medium-10 medium-offset-1 coulmns detail-image-box">
+    <%= image_tag "details.jpg", id: "details-img" %>
+  </div>
+
+  <div class="small-12 medium-10 medium-offset-1 coulmns qa">
     <h2 id="qa">Q & A</h2>
     <p class="question">How long is a session?</p>
     <p class="answer">Every session is approximatly one packed hour of tickle-fighting, joke-telling, hill-rolling, watermellon-seed-spitting magic for me to turn into art for you to enjoy.</p>
 
     <p class="question">What's included in a session?</p>
     <ul class="answer">
-      <li>pre and post consultation</li>
-      <li>Gallery of 25-30 retouched images</li>  
-      <li>USB of full web-optimized gallery</li>
-      <li>5x7 table book of your gallery</li>
+      <li>- pre and post consultation</li>
+      <li>- Gallery of 25-30 retouched images</li>  
+      <li>- USB of full web-optimized gallery</li>
+      <li>- 5x7 table book of your gallery</li>
     </ul>
 
     <p class="question">How far in advance should I book?</p>
     <p class="answer">Please contact atleast 3 weeks in advanced to reserve your ideal date and assure the best personalized service and experience.</p>
   </div>
 
-  <div class="small-12 medium-10 medium-offset-1 coulmns">
+  <div class="small-12 medium-10 medium-offset-1 coulmns sessions">
     <h2 id="session-plans">Session Plans</h2>
     <h3>Single Session</h3>
     <p class="cost">$250</p>
@@ -57,7 +46,7 @@
 
   </div>
 
-  <div class="small-12 medium-10 medium-offset-1 coulmns">
+  <div class="small-12 medium-10 medium-offset-1 coulmns process">
     <h2 id="process">The Process</h2>
     <h3>How it works:</h3>
     <ul>
@@ -70,14 +59,40 @@
 
   </div>
 
-  <div class="small-12 medium-10 medium-offset-1 coulmns">
+  <div class="small-12 medium-10 medium-offset-1 coulmns product">
     <h2 id="product">Products</h2>
     <p>
-      At your ordering/viewing session you
+      When the time comes to view your full gallery and choose your products, you have tons of options to make sure you get exactly what you’re craving. I offer hand stretched canvas gallery wraps, mounting, boutique framing, albums, and standard sized prints, all of which are archival quality with UV protection and lustre finish to resist fading and maintain their gorgeous quality for centuries. You can choose from collections, which bundle products for savings and contemporary display, or design your own packages to best suit your home or family needs. Full sized digital archives are also available for purchase. 
     </p>
 
     <p>
-      
+      Collections range from $119.00 - $599. Clients typically spend between $250 - $500 to preserve and enjoy their favorite images on display.
     </p>
   </div>
 </div>
+
+<script>
+var hashTagActive = "";
+$(".scroll").click(function (event) {
+    if(hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
+        event.preventDefault();
+        //calculate destination place
+        var dest = 0;
+        if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+            dest = $(document).height() - $(window).height();
+        } else {
+            dest = $(this.hash).offset().top;
+        }
+        //go to destination
+        $('html,body').animate({
+            scrollTop: dest
+        }, 1500, 'swing');
+        hashTagActive = this.hash;
+    }
+});
+
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+if(width < 740){
+  $("#brush-logo").css("display", "none");
+}
+</script>

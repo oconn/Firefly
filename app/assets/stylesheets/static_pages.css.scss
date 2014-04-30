@@ -40,19 +40,109 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .inside-scoop {
-  div {
-    h2 {
-      font-family: littlebird;
-      font-size: 1.4em;
-    }
-    p {
-      font-family: $cgothic;
-      font-size: 0.9em;
-    }
-    img {
+  .detail-image-box {
+    margin: 0;
+    padding: 0;
+    #details-img {
       margin: 0 auto;
-      display: block;
+      display: table;
     }
+  }
+
+  #brush-logo { 
+    display: block;
+    position: fixed;
+    z-index: -100;
+    opacity:0.4;
+    left: 2em;
+  }
+
+  .qa {
+    // border: 2px solid #fff99c;
+  }
+  
+  .sessions {
+    // border: 2px solid $mint;
+  }
+
+  .process {
+    // border: 2px solid #c3c3c3;
+  }
+
+  .product {
+    // border: 2px solid $blush;
+  }
+
+  div {
+    margin: 1em auto;
+    padding: 2em 4em;
+  }
+
+  h3 {
+    color: $dark_mint;
+    font-family: $cgothic;
+    text-align: center;
+  }
+
+  h2 {
+    color: $light_gray;
+    font-family: littlebird;
+    text-align: center;
+    border-bottom: 2px solid $blush;
+    display: table;
+    margin: 1em auto;
+  }
+
+  p {
+    font-family: $cgothic;
+    text-align: center;
+  }
+
+  p.question {
+    font-size: 1.2em;
+    color: #222;
+  }
+
+  p.answer {
+    color: #444;
+  }
+
+  li {
+    color: #444;
+    margin: 1em auto;
+    text-align: center;
+  }
+
+  .toc {
+    margin: 0 auto;
+    h1 {
+      text-align: center;
+      font-family: littlebird;
+      color: $light_gray;
+      border-bottom: 2px solid $blush;
+      display: table;
+      margin: 0 auto; 
+    }
+
+    border: none;
+    a {
+      font-family: $cgothic;
+      font-size: 1.5em;
+      color: $dark_mint;
+      transition: color 0.8s ease;
+      &:hover {
+        text-decoration: underline;
+        color: $mint; 
+      }
+    }
+    ul {
+    
+    }
+  }
+
+  ul {
+    list-style: none;
+    margin-left: 0;
   }
 }
 
@@ -83,4 +173,10 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+@media (min-width: 640px) {
+  #brush-logo {
+    
+  }
 }
