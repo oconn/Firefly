@@ -45,7 +45,7 @@ Firefly::Application.routes.draw do
   match "/photographer_profile_image/:id", to: "photographers#update_profile_image", via: :post
   
   match "/about_leah", to: "static_pages#about", via: :get, as: "about"
-  match "/inside_scoop", to: "static_pages#scoop", via: :get, as: "scoop"
+  match "/details", to: "static_pages#details", via: :get, as: "details"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
