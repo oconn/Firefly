@@ -49,6 +49,7 @@ gem 'friendly_id', '~> 5.0.0'
 
 gem 'blueimp-gallery'
 
+gem 'newrelic_rpm'
 
 # Amazon Web Services
 gem 'aws-sdk'
