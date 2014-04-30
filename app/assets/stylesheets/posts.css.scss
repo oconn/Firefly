@@ -36,8 +36,8 @@ $light_gray: #cfcece;
 .posts {
 
   .post-title {
-    margin: 1em auto;
-    font-size: 2em;
+    margin: 1em auto 0 auto;
+    font-size: 1.5em;
     color: $dark_gray;
     font-family: littlebird;
     a {
@@ -51,10 +51,17 @@ $light_gray: #cfcece;
     }
   }
   p {
-    color: #2E2E2E;
+    color: #444;
+    font-family: $cgothic;
   }
 }
 
+
+.pagination {
+  a {
+    color: $dark_mint;
+  }  
+}
 
 .post-body {
 	
@@ -74,11 +81,12 @@ $light_gray: #cfcece;
   h3 {
     font-family: littlebird;
     color: $dark_gray;
-    font-size: 1.4em;
+    font-size: 1em;
     margin-top: 1em;
   }
   p {
   	line-height: 0.8em;
+    font-family: $cgothic;
   }
   a {
     font-family: $cgothic;

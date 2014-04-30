@@ -36,12 +36,12 @@ class PostsController < ApplicationController
   def index 
     if params[:search]
       @search_content = params[:search][:search]
-      @posts = Post.friendly.paginate(:page => params[:page], :per_page => 3).where("title ILIKE ? OR body ILIKE ?", "%#{@search_content}%", "%#{@search_content}%").order("created_at DESC")
+      @posts = Post.friendly.paginate(:page => params[:page], :per_page => 4).where("title ILIKE ? OR body ILIKE ?", "%#{@search_content}%", "%#{@search_content}%").order("created_at DESC")
       flash.now[:notice] = "No results returned for '#{@search_content}'" if @posts.empty?
     elsif params[:tag]
-      @posts = Tag.find_by(name: params[:tag]).posts.paginate(:page => params[:page], :per_page => 3).order("created_at DESC") #Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+      @posts = Tag.find_by(name: params[:tag]).posts.paginate(:page => params[:page], :per_page => 4).order("created_at DESC") #Post.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
     else
-      @posts= Post.friendly.paginate(:page => params[:page], :per_page => 3).order("created_at DESC")
+      @posts= Post.friendly.paginate(:page => params[:page], :per_page => 4).order("created_at DESC")
     end
 
     @tags = Tag.all

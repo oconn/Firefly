@@ -19,6 +19,14 @@ body {
   background-color: #FFFFFF;
 }
 
+.active {
+  background-color: $mint;
+  a {
+    color: $chalk_gray !important;
+  }
+}
+
+
 .container {
 	width: 95%;
 	margin: 0 auto;
