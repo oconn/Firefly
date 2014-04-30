@@ -27,3 +27,4 @@ config/email.yml
 public/system/
 # test.csv
 # sample_imgs/
+backups/
