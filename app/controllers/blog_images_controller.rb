@@ -2,7 +2,7 @@ class BlogImagesController < ApplicationController
   before_filter :authenticate_admin
 
   def index
-    @blog_images = BlogImage.all
+    @blog_images = BlogImage.order('updated_at DESC').all
   end
 
   def new
