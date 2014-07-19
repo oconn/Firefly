@@ -20,28 +20,16 @@
         <%= f.text_field :nickname %>
       </div>
 
-      <%= f.label :name %>
+      <%= f.label :name, 'Name*' %>
       <%= f.text_field :name, :autofocus => true, :required => true %>
 
-      <%= f.label :email %>
+      <%= f.label :email, 'Email*' %>
       <%= f.text_field :email, :required => true %>
  
       <%= f.label :number, "Phone" %>
-      <%= f.text_field :number, :required => true %>
+      <%= f.text_field :number %>
 
-      <%= f.label :preferred_date %>
-      <%= f.date_field :preferred_date, :required => true %>
-
-      <%= f.label :backup_date %>
-      <%= f.date_field :backup_date, :required => true %>
-
-      <%= f.label :session_type %>
-      <%= f.select :session_type, ["Single Subject", "Family"], include_blank: true, :required => true %>
-
-      <%= f.label :referral, "How did you hear about Firefly?" %>
-      <%= f.select :referral, ["Facebook", "Word of mouth", "Google Search", "Advertisment", "Other"], include_blank: true, :required => true %>
-
-      <%= f.label :message %>
+      <%= f.label :message, 'Message*' %>
       <%= f.text_area :message, rows: "8", :required => true %>
 
       <%= f.submit "Send", class: "button" %>

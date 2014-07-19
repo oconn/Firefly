@@ -1,8 +1,13 @@
+<% provide(:title, "Firefly Photography") %>
 
 <div class="row">
   <% if !(photographer_signed_in? || user_signed_in?) %>
   	<%#= link_to "Sign Up", new_user_registration_path %>
   <% end %>
+
+  <div class="small-6 small-offset-6 columns serving">
+    <p>Personality-driven portriture for families, kids, and seniors in Charlottesville, VA and surrounding Central Virginia</p>
+  </div>
 
   <div class="small-12 columns cycle-slideshow slide-show" 
     data-cycle-fx="fadeout"
@@ -34,8 +39,13 @@
         ~ Jennifer
       </p>
     </div>
-    <div class="small-12 medium-12 columns serving">
-      <p>Based out of Charlottesville, VA serving Central Virginia</p>
+    <div class="small-12 columns belove-banner">
+      <a href="http://www.belovelyyou.com">
+        <img src="http://www.belovelyyou.com/wp-content/uploads/2014/03/Belovely-Feature-125px.png" 
+             alt="Belovely-Feature-125px" 
+             width="125" 
+             height="125"/>
+      </a>
     </div>
   </div>
 </div>

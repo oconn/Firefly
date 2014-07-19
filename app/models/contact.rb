@@ -4,11 +4,8 @@ class Contact
   include ActiveModel::Validations
   include ActionView::Helpers::TextHelper
   
-	attr_accessor :name, :email, :message, :nickname, :number, :preferred_date, :backup_date, :session_type, :referral
+	attr_accessor :name, :email, :message, :nickname, :number
 
-  validates :name, :number, :preferred_date, :backup_date, :session_type, :referral,
-            :presence => true
-  
   validates :email,
             :format => { :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
   
