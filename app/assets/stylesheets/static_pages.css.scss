@@ -167,7 +167,7 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 .serving {
   font-size: 2.6em;
   font-family: $cgothic;
-  text-align: right;
+  text-align: center;
 }
 
 .slide-show {
@@ -207,7 +207,12 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 @media (min-width: 640px) {
-  #brush-logo {
-    
+  .serving {
+    text-align: right;
+  }
+
+  .index-page {
+    position: relative;
+    bottom: 60px;
   }
 }
