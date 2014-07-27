@@ -51,6 +51,10 @@ gem 'blueimp-gallery'
 
 gem 'newrelic_rpm'
 
+gem 'sitemap_generator'
+
+gem 'fog'
+
 # Amazon Web Services
 gem 'aws-sdk'
 
