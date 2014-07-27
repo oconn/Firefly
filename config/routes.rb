@@ -48,5 +48,5 @@ Firefly::Application.routes.draw do
   match "/details", to: "static_pages#details", via: :get, as: "details"
 
   # Sitemap
-  match '/sitemap1.xml.gz',  to: 'sitemaps#show', via: 'get'
+  match '/sitemap.xml.gz',  to: 'sitemaps#show', via: 'get'
 end
