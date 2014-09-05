@@ -40,6 +40,13 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
 
 .inside-scoop {
+  .mint,
+  .quote {
+    color: $dark-mint;
+  }
+  .center {
+    text-align: center;
+  }
   .toc-li {
     margin: 1.4em auto;
   }
@@ -75,6 +82,10 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 
   .product {
     // border: 2px solid $blush;
+  }
+
+  .header {
+    text-align: left;
   }
 
   div {
@@ -154,13 +165,19 @@ $cgothic: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
       }
     }
     ul {
-    
+      li {
+        text-align: center;
+      }
     }
   }
-
+  
   ul {
     list-style: none;
     margin-left: 0;
+    li {
+      text-align: left;
+      line-height: 0.9em;
+    }
   }
 }
 
