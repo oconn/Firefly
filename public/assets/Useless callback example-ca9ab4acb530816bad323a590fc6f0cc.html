@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)file:///Volumes/Storage/Code/JavaScript/SecretsOfTheJSNinja/chapter-3/useless.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Useless callback example</title>
+    <script type="text/javascript" src="./Useless callback example_files/assert.js"></script>
+    <link href="./Useless callback example_files/assert.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <script type="text/javascript">
+      var text = 'Domo arigato!';
+      function useless(callback) { return callback(); }
+      assert(useless(function(){ return text; }) === text,
+             "The useless function works! " + text);
+    </script><ul id="results"><li class="pass">The useless function works! Domo arigato!</li></ul>
+  
+
+</body></html>
